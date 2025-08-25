@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель адміністрування</title>
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Керування відео</h1>
+        <form id="videos-form" class="form-container">
+            <input type="text" id="video-id" placeholder="ID YouTube відео (наприклад, dTCK0hm8oyQ)" required>
+            <input type="text" id="video-title" placeholder="Заголовок відео" required>
+            <textarea id="video-description" placeholder="Опис відео" rows="3"></textarea>
+            
+            <select id="video-category" required>
+                <option value="">Оберіть категорію</option>
+                <option value="promo">промо</option>
+                <option value="education">навчання</option>
+                <option value="student_life">студентське життя</option>
+                <option value="events">події</option>
+            </select>
+
+            <button type="submit">Додати відео</button>
+        </form>
+        <div id="videos-list" class="list-container">
+            <h2>Наявні відео</h2>
+        </div>
+    </div>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
