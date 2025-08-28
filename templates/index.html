@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інформаційний кіоск</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/main.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-logo">
+            <img src="/static/images/logo.png" alt="Логотип" class="logo-image">
+        </div>
+        <div class="header-center">
+            <h1 class="header-title">Інформаційний кіоск</h1>
+            <p class="header-subtitle">Оберіть розділ для перегляду</p>
+        </div>
+        <div class="header-lang">
+            <button class="lang-btn active">УКР</button>
+            <button class="lang-btn">ENG</button>
+        </div>
+    </header>
+
+    <main class="grid-container">
+        <a href="{{ url_for('schedule_page') }}" class="card">
+            <div class="card-icon" style="background-color: #e0f2f1;"></div>
+            <div class="card-content">
+                <h2 class="card-title">Розклад</h2>
+                <p class="card-subtitle">Перегляд розкладу занять</p>
+                <span class="card-link">Відкрити &rarr;</span>
+            </div>
+        </a>
+
+        <a href="{{ url_for('news_page') }}" class="card">
+            <div class="card-icon" style="background-color: #f1e0f6;"></div>
+            <div class="card-content">
+                <h2 class="card-title">Новини</h2>
+                <p class="card-subtitle">Актуальні новини університету</p>
+                <span class="card-link">Відкрити &rarr;</span>
+            </div>
+        </a>
+
+        <a href="{{ url_for('faculties_page') }}" class="card">
+            <div class="card-icon" style="background-color: #e6f6e0;"></div>
+            <div class="card-content">
+                <h2 class="card-title">Відео</h2>
+                <p class="card-subtitle">Про наш університет</p>
+                <span class="card-link">Відкрити &rarr;</span>
+            </div>
+        </a>
+
+        <a href="{{ url_for('abiturient_page') }}" class="card">
+            <div class="card-icon" style="background-color: #f6e6e0;"></div>
+            <div class="card-content">
+                <h2 class="card-title">Абітурієнтам</h2>
+                <p class="card-subtitle">Інформація для вступників</p>
+                <span class="card-link">Відкрити &rarr;</span>
+            </div>
+        </a>
+    </main>
+
+    <footer class="main-footer">
+        <p>Наш університет - @2023</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Факультети університету</title>
+    <style>
+        /* Імпорт шрифтів для сучасного вигляду */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        /* Базові стилі для тіла сторінки */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Основний контейнер, що центрує вміст */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        /* Стилі для кнопки "Назад" */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #006064;
+        }
+
+        .back-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Стилі для основного заголовка */
+        h1 {
+            text-align: center;
+            color: #004d40;
+            font-weight: 700;
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 40px;
+        }
+
+        /* Контейнер для сітки факультетів */
+        .faculties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* Стилі для картки факультету */
+        .faculty-card {
+            background-color: #fafafa;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стилі для іконок (SVG) */
+        .faculty-card .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        .faculty-card .icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #00695c;
+            transition: fill 0.3s ease;
+        }
+
+        .faculty-card:hover .icon svg {
+            fill: #004d40;
+        }
+
+        /* Стилі для назви факультету */
+        .faculty-card h3 {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Стилі для опису факультету */
+        .faculty-card p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Медіа-запити для адаптивності */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .back-btn {
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.707 11.293l-4.5-4.5a1 1 0 011.414-1.414l5.207 5.207a1 1 0 010 1.414l-5.207 5.207a1 1 0 01-1.414-1.414l4.5-4.5z" transform="rotate(-90 12 12)"/>
+            </svg>
+            Назад
+        </a>
+
+        <h1>Факультети університету</h1>
+
+        <div class="faculties-grid">
+            <!-- Картка 1: Агрономія -->
+            <div class="faculty-card" onclick="window.location.href='/video?faculty=Агрономія'">
+    <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-leaf">
+            <path d="M22 17.5a4.5 4.5 0 01-9 0c0-1.5 1.5-3 3-3s3-1.5 3-3c0-1.5 1.5-3 3-3c1.5 0 3 1.5 3 3a4.5 4.5 0 01-9 0"></path>
+            <path d="M12 2a10 10 0 00-6.7 17.7C2.4 15.6 1 12 1 9.5 1 5.9 4.9 3 8.5 3a7.5 7.5 0 017.5 7.5v1.5a1.5 1.5 0 01-3 0V11a4.5 4.5 0 00-4.5-4.5"></path>
+        </svg>
+    </div>
+    <h3>Факультет агрономії та захисту рослин</h3>
+    <p>Рослинництво, землеробство, селекція та генетика.</p>
+</div>
+
+
+            <!-- Картка 2: Екологія -->
+            <div class="faculty-card" onclick="window.location.href='/video?faculty=Екологія'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tree">
+                        <path d="M18 20V8M6 20V8"></path>
+                        <path d="M12 20V4"></path>
+                        <path d="M3 13h18a3 3 0 00-3-3H6a3 3 0 00-3 3z"></path>
+                    </svg>
+                </div>
+                <h3>Факультет екології, біотехнології та садово-паркового господарства</h3>
+                <p>Сталий розвиток, біоресурси, ландшафтний дизайн.</p>
+            </div>
+
+            <!-- Картка 3: Інженерія -->
+            <div class="faculty-card" onclick="window.location.href='/video'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tractor">
+                        <path d="M16 17a2 2 0 100-4 2 2 0 000 4z"></path>
+                        <path d="M6 17a2 2 0 100-4 2 2 0 000 4z"></path>
+                        <path d="M10 20v-3"></path>
+                        <path d="M14 20v-3"></path>
+                        <path d="M12 12H8v-2.5a2.5 2.5 0 015 0V12z"></path>
+                        <path d="M22 17V8a2 2 0 00-2-2H4a2 2 0 00-2 2v9M2 17h20"></path>
+                    </svg>
+                </div>
+                <h3>Інженерно-технологічний факультет</h3>
+                <p>Аграрні технології, механізація та автоматизація.</p>
+            </div>
+            
+            <!-- Картка 4: Економіка -->
+            <div class="faculty-card" onclick="window.location.href='/video'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+                    </svg>
+                </div>
+                <h3>Факультет економіки, підприємництва, менеджменту та сфери послуг</h3>
+                <p>Економічні процеси, управління підприємствами.</p>
+            </div>
+
+            <!-- Картка 5: Облік і фінанси -->
+            <div class="faculty-card" onclick="window.location.href='/video'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
+                    </svg>
+                </div>
+                <h3>Факультет обліку, фінансів та аудиту</h3>
+                <p>Бухгалтерський облік, фінансовий аналіз, аудит.</p>
+            </div>
+
+            <!-- Картка 6: Менеджмент -->
+            <div class="faculty-card" onclick="window.location.href='/video'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder">
+                        <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"></path>
+                    </svg>
+                </div>
+                <h3>Факультет менеджменту та права</h3>
+                <p>Організація, планування, юриспруденція.</p>
+            </div>
+
+            <!-- Картка 7: Технології виробництва -->
+            <div class="faculty-card" onclick="window.location.href='/video'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cow">
+                        <path d="M12 2L1 12h3a2 2 0 012 2v7a2 2 0 002 2h8a2 2 0 002-2v-7a2 2 0 012-2h3L12 2z"></path>
+                        <circle cx="9" cy="8" r="1.5"></circle>
+                        <circle cx="15" cy="8" r="1.5"></circle>
+                    </svg>
+                </div>
+                <h3>Факультет технологій виробництва і переробки продукції тваринництва</h3>
+                <p>Розведення тварин, харчові технології.</p>
+            </div>
+
+            <!-- Картка 8: Ветеринарна медицина -->
+            <div class="faculty-card" onclick="window.location.href='/video'">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
+                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                    </svg>
+                </div>
+                <h3>Факультет ветеринарної медицини</h3>
+                <p>Діагностика, лікування та профілактика хвороб тварин.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

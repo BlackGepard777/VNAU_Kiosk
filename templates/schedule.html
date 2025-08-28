@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розклад університету</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/schedule.css">
+</head>
+<body>
+    <div class="schedule-container">
+        <h1>Розклад університету</h1>
+
+        <div class="controls-container">
+            <div class="control-group">
+                <label for="facultySelect">Факультет:</label>
+                <select id="facultySelect">
+                    <option>Завантаження...</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="courseSelect">Курс:</label>
+                <select id="courseSelect">
+                    <option>Виберіть факультет</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="groupSelect">Група:</label>
+                <select id="groupSelect">
+                    <option>Виберіть курс</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="schedule" class="schedule-content">
+            <p class="placeholder-text">Розклад з'явиться тут...</p>
+        </div>
+    </div>
+
+    <script src="/static/js/schedule.js"></script>
+</body>
+</html>

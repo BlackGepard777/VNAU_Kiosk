@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Адмінка</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Адмінка</h1>
+
+        <div class="add-video-section card">
+            <h2>Додати відео</h2>
+            <div class="fetch-input-group">
+                <input type="text" id="youtube-url" placeholder="Вставити посилання на YouTube відео">
+                <button id="fetch-btn" type="button" class="btn">Отримати дані</button>
+            </div>
+            <form id="add-video-form" method="POST" action="{{ url_for('admin_add') }}">
+                <input type="hidden" name="yt_id" id="yt_id">
+                <input type="text" name="title" id="title" placeholder="Назва" required>
+                <input type="text" name="description" id="description" placeholder="Опис">
+
+                <select name="faculty" id="faculty-select" required>
+                    <option value="" disabled selected>Оберіть факультет</option>
+                    {% for f in faculties %}
+                        <option value="{{ f }}">{{ f }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" class="btn">Додати в БД</button>
+            </form>
+            <span id="status-message"></span>
+        </div>
+
+        <h2>Список відео</h2>
+        <div class="table-container card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Назва</th>
+                        <th>Опис</th>
+                        <th>Факультет</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in videos %}
+                    <tr>
+                        <td>{{ v.title }}</td>
+                        <td>{{ v.description }}</td>
+                        <td>{{ v.faculty }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('admin_delete', video_id=v.id) }}">
+                                <button type="submit" class="btn delete-btn">Видалити</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>

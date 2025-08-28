@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #e6e9f0, #eef1f5);
+    padding: 40px;
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #004d40;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #00796b;
+    font-size: 1.8em;
+    border-bottom: 2px solid #009688;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.add-video-section {
+    margin-bottom: 30px;
+}
+
+.fetch-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #009688;
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.3);
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #009688;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #00796b;
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background-color: #e57373;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+#status-message {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+    min-height: 20px; 
+}
+
+.table-container {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+thead th {
+    background-color: #009688;
+    color: white;
+    font-weight: 700;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #eef1f5;
+}
+
+td form {
+    margin: 0;
+}
