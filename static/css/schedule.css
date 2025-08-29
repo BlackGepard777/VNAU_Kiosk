@@ -96,20 +96,59 @@ select:focus {
     padding: 15px;
 }
 
+/* Базові стилі для кожного заняття */
 .lesson {
-    background: #fdfdfd;
-    border: 1px solid #ddd;
-    border-left: 5px solid #009688;
-    border-radius: 6px;
+    border-left: 5px solid; /* Смужка зліва для кольорового маркування */
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease;
 }
 
 .lesson:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилі для різних типів занять */
+.lesson-type-lection {
+    border-left-color: #3498db; /* Синій для лекцій */
+}
+
+.lesson-type-practice {
+    border-left-color: #27ae60; /* Зелений для практик */
+}
+
+.lesson-type-lab {
+    border-left-color: #f39c12; /* Помаранчевий для лабораторних */
+}
+
+.lesson-type-other {
+    border-left-color: #95a5a6; /* Сірий для інших типів */
+}
+
+/* Заголовок уроку */
+.lesson-name {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Тип заняття */
+.lesson-type {
+    background-color: #eee;
+    color: #666;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+/* Деталі заняття */
+.meta {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #777;
 }
 
 .lesson h3 {

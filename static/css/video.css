@@ -10,6 +10,7 @@ body {
     line-height: 1.6;
 }
 
+/* Хедер та інші загальні елементи */
 .header {
     display: flex;
     justify-content: space-between;
@@ -21,32 +22,7 @@ body {
     margin-bottom: 30px;
 }
 
-h1 {
-    color: #004d40;
-    font-weight: 700;
-    font-size: 2.5em;
-    margin: 0;
-}
-
-.back-btn {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.3s ease;
-}
-
-.back-btn:hover {
-    color: #006064;
-}
-
-.back-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
+/* Налаштування сітки для карток */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -54,6 +30,7 @@ h1 {
     padding: 0 20px;
 }
 
+/* Стилі для кожної відеокартки */
 .video-card {
     background-color: #fff;
     border-radius: 15px;
@@ -68,12 +45,20 @@ h1 {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Контейнер для відеопрогравача */
 .video-player {
     width: 100%;
     height: 250px;
     background-color: #000;
 }
 
+.video-player iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Контейнер для текстової інформації */
 .video-info {
     padding: 20px;
 }
@@ -90,6 +75,8 @@ h1 {
     color: #666;
     margin: 10px 0 0;
 }
+
+/* Стилі для пагінації */
 .pagination-controls {
     display: flex;
     justify-content: center;
@@ -120,8 +107,8 @@ h1 {
     transform: none;
 }
 
-.video-player iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+#page-info {
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 500;
 }

@@ -11,6 +11,10 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route("/en")
+def english():
+    return render_template("usa.html")
+
 @app.route("/faculties")
 def faculties_page():
     return render_template("faculties.html")

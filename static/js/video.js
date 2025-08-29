@@ -5,9 +5,17 @@ function createVideoCard(video) {
     const card = document.createElement("div");
     card.className = "video-card";
     card.innerHTML = `
-        <iframe src="https://www.youtube.com/embed/${video.yt_id}" frameborder="0" allowfullscreen></iframe>
-        <h3>${video.title}</h3>
-        <p>${video.description || ""}</p>
+        <div class="video-player">
+            <iframe src="https://www.youtube.com/embed/${video.yt_id}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-info">
+            <h2>${video.title}</h2>
+            <p>${video.description || ""}</p>
+        </div>
     `;
     return card;
 }

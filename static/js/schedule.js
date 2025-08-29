@@ -46,43 +46,65 @@ const facultySelect = document.getElementById("facultySelect");
     }
 
     async function loadSchedule(groupId) {
-      scheduleContainer.innerHTML = "Завантаження...";
-      const res = await fetch(`https://mkr.sergkh.com/structures/0/faculties/0/courses/0/groups/${groupId}/schedule`);
-      const data = await res.json();
+    scheduleContainer.innerHTML = "Завантаження...";
+    try {
+        const res = await fetch(`https://mkr.sergkh.com/structures/0/faculties/0/courses/0/groups/${groupId}/schedule`);
+        const data = await res.json();
 
-      const grouped = {};
-      data.forEach(item => {
-        const date = new Date(item.start).toLocaleDateString("uk-UA", { weekday:"long", year:"numeric", month:"long", day:"numeric"});
-        if (!grouped[date]) grouped[date] = [];
-        grouped[date].push(item);
-      });
-
-      scheduleContainer.innerHTML = "";
-      for (const [date, lessons] of Object.entries(grouped)) {
-        const dayDiv = document.createElement("div");
-        dayDiv.className = "day";
-
-        const h2 = document.createElement("h2");
-        h2.textContent = date;
-        dayDiv.appendChild(h2);
-
-        lessons.forEach(item => {
-          const div = document.createElement("div");
-          div.className = "lesson";
-          div.innerHTML = `
-            <h3>${item.name} (${item.type})</h3>
-            <div class="meta">
-              ${new Date(item.start).toLocaleTimeString("uk-UA",{hour:"2-digit",minute:"2-digit"})} <br>
-              Викладач: ${item.teacher} <br>
-              Аудиторія: ${item.place}
-            </div>
-          `;
-          dayDiv.appendChild(div);
+        const grouped = {};
+        data.forEach(item => {
+            const date = new Date(item.start).toLocaleDateString("uk-UA", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+            if (!grouped[date]) grouped[date] = [];
+            grouped[date].push(item);
         });
 
-        scheduleContainer.appendChild(dayDiv);
-      }
+        scheduleContainer.innerHTML = "";
+        for (const [date, lessons] of Object.entries(grouped)) {
+            const dayDiv = document.createElement("div");
+            dayDiv.className = "day";
+
+            const h2 = document.createElement("h2");
+            h2.textContent = date;
+            dayDiv.appendChild(h2);
+
+            lessons.forEach(item => {
+              const div = document.createElement("div");
+              div.className = "lesson";
+
+              // Додаємо клас залежно від типу заняття
+              let lessonTypeClass = '';
+              const lessonType = item.type.toLowerCase();
+
+              if (lessonType.includes("лекція") || lessonType.includes("lection")) {
+                  lessonTypeClass = 'lesson-type-lection';
+              } else if (lessonType.includes("практика") || lessonType.includes("practice")) {
+                  lessonTypeClass = 'lesson-type-practice';
+              } else if (lessonType.includes("лабораторна") || lessonType.includes("lab")) {
+                  lessonTypeClass = 'lesson-type-lab';
+              } else {
+                  lessonTypeClass = 'lesson-type-other';
+              }
+
+              div.classList.add(lessonTypeClass);
+
+              div.innerHTML = `
+                <h3 class="lesson-name">${item.name}</h3>
+                <div class="meta">
+                  ${new Date(item.start).toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit" })} <br>
+                  Викладач: ${item.teacher} <br>
+                  Аудиторія: ${item.place}
+                </div>
+              `;
+              dayDiv.appendChild(div);
+          });
+
+          scheduleContainer.appendChild(dayDiv);
+        }
+    } catch (error) {
+        console.error("Помилка завантаження розкладу:", error);
+        scheduleContainer.innerHTML = `<p class="error-message">Не вдалося завантажити розклад. Спробуйте пізніше.</p>`;
     }
+}
 
     facultySelect.addEventListener("change", () => {
       if(facultySelect.value) loadCourses(facultySelect.value);

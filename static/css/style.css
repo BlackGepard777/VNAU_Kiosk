@@ -1,9 +1,8 @@
-/* Імпорт шрифту Roboto для сучасного вигляду */
+/* Імпорт шрифту Roboto для сучасного вигляду 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #fff; /* Білий фон */
+    
     margin: 0;
     padding: 0;
     display: flex;
@@ -141,4 +140,154 @@ body {
     background-color: #f0f4f9;
     color: #666;
     border-top: 1px solid #ddd;
+}
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+.main-header {
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    
+    flex-wrap: nowrap;
+}
+
+.logo-vnau-header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.logo-vnau-header>img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+.txt-vnau-header {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: bolder;
+    gap: 0.3em;
+}
+
+.txt-header-color {
+    color: #343E3D;
+
+}
+
+.info-vnau-header>ul {
+    display: flex;
+    list-style-type: none;
+    gap: 1em;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.info-vnau-header a {
+    background-color: green;
+    border-radius: 8px;
+    padding: 1em;
+    text-decoration: none;
+    color: white;
+    cursor: pointer
+}
+
+.info-vnau-header a:hover {
+    background-color: greenyellow;
+}
+
+.language-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.4em;
+}
+
+.language-header img {
+    width: 40px;
+}
+
+.info-vnau-main {
+    display: flex;
+    background-color:whitesmoke;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-info-vnau {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    background-color: white;
+    margin: 2em;
+    border-radius: 8px;
+    
+}
+
+.txt-vnau-info {
+    display: flex;
+    font-size: 3em;
+    padding: 1em;
+}
+
+.img-info-vnau img {
+    display: flex;
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+}
+
+.main-info-footer {
+    display: flex;
+    background-color: #212529;
+    width: 100%;
+    flex-direction: column;
+}
+
+.info-footer {
+    display: flex;
+    color: white;
+    margin: 1em;
+    justify-content: space-between;
+    font-size: 1.3em;
+    padding: 0.5em;
+}
+
+.list-footer {
+    display: flex;
+    
+}
+
+
+
+.list-footer ul {
+    list-style: none;
+}
+
+
+.txt-love-vnau  {
+    display: flex;
+}
+
+.txt-love-vnau ul {
+    list-style: none;
+}
+
+.footer-botom {
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 1em;
+    font-size: 1.3em;
 }
