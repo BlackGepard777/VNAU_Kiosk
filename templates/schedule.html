@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="/static/css/schedule.css">
 </head>
 <body>
+    <div class="bg-particles" id="particles"></div>
+    <a href="/" class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.707 11.293l-4.5-4.5a1 1 0 011.414-1.414l5.207 5.207a1 1 0 010 1.414l-5.207 5.207a1 1 0 01-1.414-1.414l4.5-4.5z" transform="rotate(-90 12 12)"/>
+            </svg>
+            Назад
+        </a>
     <div class="schedule-container">
-        <h1>Розклад університету</h1>
-
+        <div class="header"><h1>Розклад університету</h1>
+        </div>
         <div class="controls-container">
             <div class="control-group">
                 <label for="facultySelect">Факультет:</label>
@@ -18,14 +25,12 @@
                     <option>Завантаження...</option>
                 </select>
             </div>
-
             <div class="control-group">
                 <label for="courseSelect">Курс:</label>
                 <select id="courseSelect">
                     <option>Виберіть факультет</option>
                 </select>
             </div>
-
             <div class="control-group">
                 <label for="groupSelect">Група:</label>
                 <select id="groupSelect">
@@ -33,12 +38,28 @@
                 </select>
             </div>
         </div>
-
         <div id="schedule" class="schedule-content">
             <p class="placeholder-text">Розклад з'явиться тут...</p>
         </div>
     </div>
-
     <script src="/static/js/schedule.js"></script>
+    <script src="/static/js/idle_mode.js"></script>
+    <script>
+  function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      particle.style.animationDelay = Math.random() * 2 + 's';
+      particlesContainer.appendChild(particle);
+    }
+  }
+  window.addEventListener('load', createParticles);
+</script>
 </body>
 </html>

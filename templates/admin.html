@@ -60,6 +60,45 @@
             </table>
         </div>
     </div>
+    <div class="add-idle-video-section card">
+    <h2>Відео для режиму бездіяльності</h2>
+    <div class="fetch-input-group">
+        <input type="text" id="idle-youtube-url" placeholder="Вставити посилання на YouTube відео">
+        <button id="idle-fetch-btn" type="button" class="btn">Отримати дані</button>
+    </div>
+    <form id="add-idle-video-form">
+        <input type="hidden" name="yt_id" id="idle-yt_id">
+        <input type="text" name="title" id="idle-title" placeholder="Назва" required>
+        <button type="submit" class="btn">Додати в БД</button>
+    </form>
+    <span id="idle-status-message"></span>
+</div>
+
+<div class="table-container card">
+    <h3>Список відео бездіяльності</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>YouTube ID</th>
+                <th>Активне</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in idle_videos %}
+            <tr>
+                <td>{{ v.title }}</td>
+                <td><a href="https://www.youtube.com/watch?v={{ v.yt_id }}" target="_blank">{{ v.yt_id }}</a></td>
+                <td><input type="checkbox" class="idle-toggle" data-id="{{ v.id }}" {{ 'checked' if v.is_active else '' }}></td>
+                <td>
+                    <button type="button" class="btn delete-idle-btn" data-id="{{ v.id }}">Видалити</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
     
     <script src="/static/js/admin.js"></script>
 </body>

@@ -4,75 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Абітурієнтам</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 { margin-bottom: 5px; }
-        p.subtitle { margin-top: 0; color: #555; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .card {
-            border: 2px solid #333;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .card:hover {
-            background-color: #f0f0f0;
-        }
-        .card img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 10px;
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 12px;
-            color: #777;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/abiturient.css">
 </head>
 <body>
-    <button onclick="history.back()">Назад</button>
-    <h1>Абітурієнтам</h1>
-    <p class="subtitle">Вся необхідна інформація для вступу</p>
-
-        <a href="{{ url_for('rules_page') }}">
-        <p>Правила вступу</p> 
-
-        <a href="{{ url_for('specialties_page') }}">
-        <p>Спеціальності та освітні програми</p>
-
-        <a href="{{ url_for('admission_page') }}">
-        <p>Вступна кампанія</p>
-        
-        <a href="{{ url_for('admission_page') }}">
-            <p>Необхідні документи</p>
-        
-        <a href="{{ url_for('contacts_page') }}">
-            <p>Контакти приймальної комісії</p>
-
-        <a href="{{ url_for('tuition_page') }}">            
-            <p>Вартість навчання</p>
-        
-        <a href="{{ url_for('studentlife_page') }}">            
-            <p>Студентське життя</p>
-        
-        <a href="{{ url_for('about_page') }}">
-            <p>Про університет</p>      
-    
-
+    <a href="/" class="back-btn">⬅ Назад</a>
+    <div class="header-abit">
+        <h1>Абітурієнтам</h1>
+        <p class="subtitle">Вся необхідна інформація для вступу</p>
+    </div>
+    <div class="grid">
+        <a href="{{ url_for('rules_page') }}" class="card">
+            <img src="/static/images/abiturient_img/3319636_agreement_contract_document_page_paper_icon (1).png" alt="">
+            <span class="card-title">Правила вступу</span>
+            <p>Ознайомтесь з актуальними правилами прийому</p>
+        </a>
+        <a href="{{ url_for('specialties_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532620_award_badge_business_college_diploma_icon.png" alt="">
+            <span class="card-title">Спеціальності та освітні програми</span>
+            <p>Виберіть напрямок для навчання</p>
+        </a>
+        <a href="{{ url_for('admission_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532632_analysis_chart_charts_diagram_graph_icon.png" alt="">
+            <span class="card-title">Вступна кампанія</span>
+            <p>Дізнайтесь про етапи вступу</p>
+        </a>
+        <a href="{{ url_for('documents_page') }}" class="card">
+            <img src="/static/images/abiturient_img/3319619_artical_law_news paper_paper_icon (1).png" alt="">
+            <span class="card-title">Необхідні документи</span>
+            <p>Які документи потрібні для вступу</p>
+        </a>
+        <a href="{{ url_for('contacts_page') }}" class="card">
+            <img src="/static/images/abiturient_img/приймальна ком.png" alt="">
+            <span class="card-title">Контакти приймальної комісії</span>
+            <p>Зв'яжіться з нами для консультації</p>
+        </a>
+        <a href="{{ url_for('tuition_page') }}" class="card">
+            <img src="/static/images/abiturient_img/3319605_bulb_dollar_financial_idea_light_icon.png" alt="">
+            <span class="card-title">Вартість навчання</span>
+            <p>Дізнайтесь про оплату та бюджетні місця</p>
+        </a>
+        <a href="{{ url_for('studentlife_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532648_diamond_gem_luxury_sparkle_value_icon.png" alt="">
+            <span class="card-title">Студентське життя</span>
+            <p>Дозвілля, гуртожитки, активності</p>
+        </a>
+        <a href="{{ url_for('about_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532639_coin_currency_dollar_explore_funding_icon.png" alt="">
+            <span class="card-title">Про університет</span>
+            <p>Історія, місія, цінності ВНАУ</p>
+        </a>
+    </div>
     <footer>
         © 2025 ВНАУ. Інформація на сайті може оновлюватися. Актуальні дані уточнюйте у Приймальної комісії.
     </footer>
+    <script src="/static/js/idle_mode.js"></script>
 </body>
 </html>

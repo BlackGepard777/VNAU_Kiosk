@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            data.forEach(item => {
+            data.slice(0, 2).forEach(item => {
                 const card = document.createElement('div');
                 card.classList.add('news-card');
 
@@ -48,10 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Завантаження новин
     loadAndRenderContent('/api/news', newsContainer, 'news');
-
-    // Завантаження оголошень
     loadAndRenderContent('/api/announcements', announcementsContainer, 'announcement');
 
     function loadItemDetail(url, type) {
@@ -59,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (type === 'news') {
         endpoint = `/api/news/detail?url=${encodeURIComponent(url)}`;
     } else if (type === 'announcement') {
-        endpoint = `/api/announcements/detail?url=${encodeURIComponent(url)}`; // правильний endpoint
+        endpoint = `/api/announcements/detail?url=${encodeURIComponent(url)}`; 
     } else {
         console.error("Невідомий тип контенту");
         return;
