@@ -6,7 +6,14 @@ from urllib.parse import urljoin, unquote
 
 app = Flask(__name__)
 
-# ----------------- Публічні сторінки -----------------
+@app.route("/idle")
+def idle_page():
+    """Відображає сторінку з відео для режиму бездіяльності."""
+    yt_id = database.get_active_idle_video()
+    if yt_id:
+        return render_template("idle.html", yt_id=yt_id)
+    return redirect(url_for("home"))
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -40,7 +47,6 @@ def api_videos():
         "pages": (total + per_page - 1) // per_page
     })
 
-# ----------------- Новини -----------------
 @app.route('/news')
 def news_page():
     return render_template('news.html')
@@ -92,8 +98,6 @@ def get_news_detail():
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
-# ----------------- Оголошення -----------------
-# ----------------- Оголошення -----------------
 @app.route('/api/announcements')
 def get_announcements():
     """Отримує оголошення зі сторінки https://vsau.org/novini/ogoloshennya."""
@@ -122,8 +126,6 @@ def get_announcements():
         return jsonify(announcements)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
-
-
 
 @app.route('/api/announcements/detail')
 def get_announcement_detail():
@@ -166,15 +168,10 @@ def get_announcement_detail():
     except Exception as e:
         return jsonify({"error": f"Помилка парсингу вмісту: {e}"}), 500
 
-
-
-# ----------------- Розклад -----------------
 @app.route("/schedule")
 def schedule_page():
     return render_template("schedule.html")
 
-
-#------------------Абітурієнтам---------------
 @app.route("/abiturient")
 def abiturient_page():
     return render_template("abiturient.html")
@@ -211,15 +208,20 @@ def studentlife_page():
 def about_page():
     return render_template("abiturient_page_list/about.html")
 
-# ----------------- Адмінка -----------------
+@app.route("/developments")
+def developments_page():
+    return render_template("developments.html")
+
+
 @app.route("/admin")
 def admin_page():
     videos = database.get_videos(limit=1000, offset=0)
+    idle_videos = database.get_idle_videos()
     faculties = [
         "Агрономія", "Екологія", "Інженерія", "Економіка",
         "Облік і фінанси", "Менеджмент", "Технології виробництва", "Ветеринарна медицина"
     ]
-    return render_template("admin.html", videos=videos, faculties=faculties)
+    return render_template("admin.html", videos=videos, faculties=faculties, idle_videos=idle_videos)
 
 @app.route("/admin/add", methods=["POST"])
 def admin_add():
@@ -244,7 +246,33 @@ def admin_delete(video_id):
     database.delete_video(video_id)
     return redirect(url_for("admin_page"))
 
-# ----------------- YouTube API -----------------
+@app.route("/admin/idle/add", methods=["POST"])
+def admin_add_idle_video():
+    yt_id = request.form["yt_id"]
+    title = request.form["title"]
+    database.add_idle_video(yt_id, title)
+    return redirect(url_for("admin_page"))
+
+@app.route("/admin/idle/toggle", methods=["POST"])
+def admin_toggle_idle_video():
+    data = request.json
+    video_id = data.get("video_id")
+    is_active = data.get("is_active")
+
+    if video_id is None or is_active is None:
+        return jsonify({"error": "Missing video_id or is_active"}), 400
+
+    # Оновлюємо статус в базі даних
+    database.toggle_idle_video_status(video_id, is_active)
+
+    return jsonify({"success": True})
+
+@app.route("/admin/idle/delete", methods=["POST"])
+def admin_delete_idle_video():
+    video_id = request.form["video_id"]
+    database.delete_idle_video(video_id)
+    return jsonify({"success": True})
+
 @app.route('/api/get_video_info')
 def get_video_info():
     yt_id = request.args.get("yt_id")
@@ -263,8 +291,18 @@ def get_video_info():
         })
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
+    
+    # ... (весь ваш існуючий код)
 
-# ----------------- Запуск -----------------
+
+@app.route("/api/idle_video")
+def api_idle_video():
+    """Повертає YouTube ID активного відео для режиму бездіяльності."""
+    yt_id = database.get_active_idle_video()
+    if yt_id:
+        return jsonify({"yt_id": yt_id})
+    return jsonify({"yt_id": None}), 404
+
 if __name__ == "__main__":
     database.init_db()
     app.run(debug=True)

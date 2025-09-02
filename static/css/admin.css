@@ -74,10 +74,6 @@ input[type="text"]:focus {
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
-.btn:hover {
-    background-color: #00796b;
-    transform: translateY(-2px);
-}
 
 .delete-btn {
     background-color: #e57373;

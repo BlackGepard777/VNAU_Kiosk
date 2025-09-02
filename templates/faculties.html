@@ -4,141 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Факультети університету</title>
-    <style>
-        /* Імпорт шрифтів для сучасного вигляду */
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-        /* Базові стилі для тіла сторінки */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f4f9;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /* Основний контейнер, що центрує вміст */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            position: relative;
-        }
-
-        /* Стилі для кнопки "Назад" */
-        .back-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s ease;
-        }
-
-        .back-btn:hover {
-            color: #006064;
-        }
-
-        .back-btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Стилі для основного заголовка */
-        h1 {
-            text-align: center;
-            color: #004d40;
-            font-weight: 700;
-            font-size: 2.5em;
-            margin-top: 0;
-            margin-bottom: 40px;
-        }
-
-        /* Контейнер для сітки факультетів */
-        .faculties-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        /* Стилі для картки факультету */
-        .faculty-card {
-            background-color: #fafafa;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .faculty-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Стилі для іконок (SVG) */
-        .faculty-card .icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-        }
-
-        .faculty-card .icon svg {
-            width: 100%;
-            height: 100%;
-            fill: #00695c;
-            transition: fill 0.3s ease;
-        }
-
-        .faculty-card:hover .icon svg {
-            fill: #004d40;
-        }
-
-        /* Стилі для назви факультету */
-        .faculty-card h3 {
-            font-size: 1.2em;
-            font-weight: 500;
-            color: #333;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        /* Стилі для опису факультету */
-        .faculty-card p {
-            font-size: 0.9em;
-            color: #666;
-            margin: 0;
-        }
-
-        /* Медіа-запити для адаптивності */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .back-btn {
-                top: 10px;
-                left: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/facultets.css">
 </head>
 <body>
+    <div class="bg-particles" id="particles"></div>
     <div class="container">
         <a href="/" class="back-btn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -150,20 +19,13 @@
         <h1>Факультети університету</h1>
 
         <div class="faculties-grid">
-            <!-- Картка 1: Агрономія -->
             <div class="faculty-card" onclick="window.location.href='/video?faculty=Агрономія'">
-    <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-leaf">
-            <path d="M22 17.5a4.5 4.5 0 01-9 0c0-1.5 1.5-3 3-3s3-1.5 3-3c0-1.5 1.5-3 3-3c1.5 0 3 1.5 3 3a4.5 4.5 0 01-9 0"></path>
-            <path d="M12 2a10 10 0 00-6.7 17.7C2.4 15.6 1 12 1 9.5 1 5.9 4.9 3 8.5 3a7.5 7.5 0 017.5 7.5v1.5a1.5 1.5 0 01-3 0V11a4.5 4.5 0 00-4.5-4.5"></path>
-        </svg>
-    </div>
-    <h3>Факультет агрономії та захисту рослин</h3>
-    <p>Рослинництво, землеробство, селекція та генетика.</p>
-</div>
-
-
-            <!-- Картка 2: Екологія -->
+                <div class="icon">
+                    <img src="/static/images/facultets_img/Airbrush-Image-Enhancer-1756386538660-Photoroom.png" alt="Агрономія">
+                </div>
+                <h3>Факультет агрономії, садівництва та захисту рослин</h3>
+            </div>
+            <h3>Виберіть факультет для перегляду відео</h3>
             <div class="faculty-card" onclick="window.location.href='/video?faculty=Екологія'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tree">
@@ -175,8 +37,6 @@
                 <h3>Факультет екології, біотехнології та садово-паркового господарства</h3>
                 <p>Сталий розвиток, біоресурси, ландшафтний дизайн.</p>
             </div>
-
-            <!-- Картка 3: Інженерія -->
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tractor">
@@ -191,8 +51,6 @@
                 <h3>Інженерно-технологічний факультет</h3>
                 <p>Аграрні технології, механізація та автоматизація.</p>
             </div>
-            
-            <!-- Картка 4: Економіка -->
             <div class="faculty-card" onclick="window.location.href='/video?faculty=Економіка'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe">
@@ -204,8 +62,6 @@
                 <h3>Факультет економіки, підприємництва, менеджменту та сфери послуг</h3>
                 <p>Економічні процеси, управління підприємствами.</p>
             </div>
-
-            <!-- Картка 5: Облік і фінанси -->
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign">
@@ -216,8 +72,6 @@
                 <h3>Факультет обліку, фінансів та аудиту</h3>
                 <p>Бухгалтерський облік, фінансовий аналіз, аудит.</p>
             </div>
-
-            <!-- Картка 6: Менеджмент -->
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder">
@@ -227,8 +81,6 @@
                 <h3>Факультет менеджменту та права</h3>
                 <p>Організація, планування, юриспруденція.</p>
             </div>
-
-            <!-- Картка 7: Технології виробництва -->
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cow">
@@ -240,8 +92,6 @@
                 <h3>Факультет технологій виробництва і переробки продукції тваринництва</h3>
                 <p>Розведення тварин, харчові технології.</p>
             </div>
-
-            <!-- Картка 8: Ветеринарна медицина -->
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
@@ -253,5 +103,39 @@
             </div>
         </div>
     </div>
+    <script src="/static/js/idle_mode.js"></script>
+    <script>
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 50;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+    window.addEventListener('load', createParticles);
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card, .teacher-card');
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
 </body>
 </html>

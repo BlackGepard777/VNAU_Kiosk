@@ -64,14 +64,12 @@ const facultySelect = document.getElementById("facultySelect");
             dayDiv.className = "day";
 
             const h2 = document.createElement("h2");
-            h2.textContent = date;
+            h2.textContent = `Розклад на ${date}`;
             dayDiv.appendChild(h2);
 
             lessons.forEach(item => {
               const div = document.createElement("div");
               div.className = "lesson";
-
-              // Додаємо клас залежно від типу заняття
               let lessonTypeClass = '';
               const lessonType = item.type.toLowerCase();
 
@@ -79,7 +77,9 @@ const facultySelect = document.getElementById("facultySelect");
                   lessonTypeClass = 'lesson-type-lection';
               } else if (lessonType.includes("практика") || lessonType.includes("practice")) {
                   lessonTypeClass = 'lesson-type-practice';
-              } else if (lessonType.includes("лабораторна") || lessonType.includes("lab")) {
+              } else if (lessonType.includes("екзамен") || lessonType.includes("exam")) {
+                  lessonTypeClass = 'lesson-type-lab';
+              } else if (lessonType.includes("залік") || lessonType.includes("zalik")) {
                   lessonTypeClass = 'lesson-type-lab';
               } else {
                   lessonTypeClass = 'lesson-type-other';
@@ -88,13 +88,23 @@ const facultySelect = document.getElementById("facultySelect");
               div.classList.add(lessonTypeClass);
 
               div.innerHTML = `
-                <h3 class="lesson-name">${item.name}</h3>
+              <div class="lesson-time">
+                ${new Date(item.start).toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit" })}
+              </div>
+              <div class="lesson-content">
+                <h3 class="lesson-name">
+                  <span class="icon">
+                    ${item.type === "lection" ? "📖" : item.type === "practice" ? "🧑‍🏫" : item.type === "Лб" ? "💻" : "📌"}
+                  </span>
+                  ${item.name}
+                </h3>
                 <div class="meta">
-                  ${new Date(item.start).toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit" })} <br>
                   Викладач: ${item.teacher} <br>
                   Аудиторія: ${item.place}
                 </div>
-              `;
+              </div>
+            `;
+
               dayDiv.appendChild(div);
           });
 

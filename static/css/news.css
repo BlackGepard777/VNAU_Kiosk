@@ -1,24 +1,10 @@
-/* Імпорт шрифтів */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f0f4f9;
     margin: 0;
-    padding: 20px;
     color: #333;
     line-height: 1.6;
-}
-
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border-radius: 15px;
-    margin-bottom: 30px;
 }
 
 h1 {
@@ -40,24 +26,18 @@ h1 {
     transition: color 0.3s ease;
 }
 
-.back-btn:hover {
-    color: #006064;
-}
-
 .back-btn svg {
     width: 20px;
     height: 20px;
 }
 
-/* Стилі для контейнера новин */
 #news-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
     gap: 25px;
     padding: 0 20px;
 }
 
-/* Стилі для карток новин (використання Bootstrap класів для селектора) */
 .news-card {
     background-color: #fff;
     border-radius: 15px;
@@ -69,12 +49,7 @@ h1 {
     color: #333;
     display: flex;
     flex-direction: column;
-    padding: 20px; /* Додаємо padding для кращого вигляду */
-}
-
-.news-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
 }
 
 .news-card h3 {
@@ -98,7 +73,6 @@ h1 {
     object-fit: cover;
 }
 
-/* Стилі для кнопок Bootstrap */
 .btn-primary {
     background-color: #00695c !important;
     border-color: #00695c !important;
@@ -106,12 +80,6 @@ h1 {
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
-.btn-primary:hover {
-    background-color: #004d40 !important;
-    transform: translateY(-2px);
-}
-
-/* Стилі для модального вікна */
 .modal-content {
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -163,3 +131,81 @@ h1 {
     font-style: italic;
     padding: 20px;
 }
+
+.content-section {
+    background: rgba(255,255,255,0.08);
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(94, 217, 107, 0.3);
+    padding: 32px 24px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: 900;
+    color: #5ED96B;
+    background: linear-gradient(135deg, #5ED96B 0%, #C4EBDD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.news-card {
+    background: #21332F;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    border: 1px solid rgba(94, 217, 107, 0.18);
+    color: #C4EBDD;
+    padding: 24px 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-card h3 {
+    font-size: 1.18em;
+    font-weight: 700;
+    color: #5ED96B;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.news-card p {
+    font-size: 1em;
+    color: #9BB8AF;
+    margin: 0;
+    text-align: center;
+}
+
+.news-card img {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 14px;
+}
+
+.news-card .btn-primary {
+    background-color: #5ED96B !important;
+    color: #21332F !important;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 12px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    border: 1px solid rgba(94, 217, 107, 0.3) !important;
+}
+
+
