@@ -22,8 +22,14 @@ body {
 
 .header-abit {
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 10px;
+  margin: 40px auto 60px auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  max-width: 1100px;
+  width: 100%;
 }
 
 h1 {
@@ -100,6 +106,7 @@ h1 {
 }
 
 .back-btn {
+  position: static;
   margin: 30px 0 0 30px;
   text-decoration: none;
   color: var(--accent);
@@ -111,6 +118,7 @@ h1 {
   border: 1px solid var(--border);
   transition: background 0.2s, color 0.2s, transform 0.2s;
   display: inline-block;
+  z-index: 10;
 }
 
 footer {
@@ -124,4 +132,70 @@ footer {
   width: 100%;
   flex-direction: column;
   margin-bottom: 0;
+}
+
+@media (min-width: 1600px) {
+  .grid {
+    max-width: 1600px;
+    gap: 48px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+  }
+  .card {
+    min-height: 260px;
+    padding: 40px 18px 32px 18px;
+    font-size: 1.15em;
+  }
+  .card img {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 22px;
+  }
+  .card-title {
+    font-size: 1.25em;
+    margin-bottom: 18px;
+  }
+  .card p {
+    font-size: 1.08em;
+  }
+
+  .header-abit {
+    margin: 100px auto 60px auto;
+    max-width: 1600px;
+  }
+
+  .back-btn {
+    position: absolute;
+    top: 20px;
+    left: 48px;
+    font-size: 1.25em;
+    padding: 16px 40px;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(94,217,107,0.10);
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 18px;
+  }
+  .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+  }
+  footer {
+    margin-top: 160px;
+    padding: 40px;
+    font-size: 1.15em;
+    background: rgba(255,255,255,0.08);
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    color: #C4EBDD;
+    text-align: center;
+    border: 1px solid rgba(94, 217, 107, 0.3);
+    backdrop-filter: blur(20px);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

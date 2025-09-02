@@ -98,25 +98,23 @@ body {
 }
 
 .back-btn {
-  position: absolute;
-  top: 28px;
-  left: 28px;
-  text-decoration: none;
-  color: var(--accent);
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(33,51,47,0.7);
-  padding: 10px 22px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(94,217,107,0.08);
-  border: 1px solid var(--border);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  z-index: 2;
-  width: 150px;
-  height: 80px;
-  font-size: 24px;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-size: 1em;
+    color: var(--accent);
+    background: rgba(33,51,47,0.85);
+    padding: 8px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(94,217,107,0.08);
+    border: 1px solid var(--border);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 100;
 }
 
 .controls-container {
@@ -299,3 +297,104 @@ select:focus {
   line-height: 1.4;
 }
 
+@media (min-width: 1900px) {
+  .schedule-container {
+    max-width: 1600px;
+    padding: 60px 80px;
+  }
+  .header {
+    padding: 60px 80px;
+    font-size: 2.5em;
+  }
+  .header h1 {
+    font-size: clamp(3.5rem, 4vw, 5rem);
+    margin-bottom: 32px;
+  }
+
+  .back-btn {
+    top: 20px;
+    left: 48px;
+    font-size: 1.1em;
+    padding: 10px 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(94,217,107,0.10);
+    gap: 12px;
+  }
+
+  .controls-container {
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  .control-group {
+    min-width: 220px;
+    max-width: 340px;
+    padding: 28px 24px;
+    font-size: 1.3em;
+  }
+  label {
+    font-size: 1.3em;
+    margin-bottom: 16px;
+  }
+  select {
+    max-width: 300px;
+    min-width: 240px;
+    font-size: 1em;
+    padding: 8px 14px;
+  }
+  .schedule-content {
+    margin-top: 50px;
+    min-height: 400px;
+  }
+  .placeholder-text {
+    font-size: 2em;
+    padding: 80px 0;
+  }
+  .day {
+    margin-bottom: 60px;
+    border-radius: 28px;
+    padding-bottom: 20px;
+  }
+  .day h2 {
+    font-size: 2em;
+    padding: 28px 48px;
+    border-radius: 28px 28px 0 0;
+  }
+  .lesson-list {
+    padding: 40px 60px;
+  }
+  .lesson-list::before {
+    left: 38px;
+    width: 8px;
+  }
+  .lesson {
+    gap: 32px;
+    margin-bottom: 44px;
+    border-radius: 24px;
+    padding: 32px 48px;
+    font-size: 1.3em;
+  }
+  .lesson::before {
+    left: -48px;
+    top: 32px;
+    width: 24px;
+    height: 24px;
+    border-width: 5px;
+  }
+  .lesson-time {
+    font-size: 1.3em;
+    min-width: 120px;
+  }
+  .lesson-name {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+  }
+  .lesson-type {
+    font-size: 1.1em;
+    padding: 4px 18px;
+    margin-left: 18px;
+  }
+  .meta {
+    font-size: 1.15em;
+    margin-top: 18px;
+  }
+}

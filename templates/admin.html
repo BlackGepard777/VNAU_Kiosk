@@ -6,7 +6,18 @@
     <link rel="stylesheet" href="/static/css/admin.css">
 </head>
 <body>
-    <div class="admin-container">
+    <div class="auth-info">
+        <div class="session-status" id="sessionStatus">
+            🟢 Сесія активна
+        </div>   
+        <div class="logout">        
+            <a href="/logout" class="logout-btn">
+                Вихід
+            </a>
+        </div>
+    </div>
+    
+    <div id="admin-content" class="admin-container">
         <h1>Адмінка</h1>
 
         <div class="add-video-section card">

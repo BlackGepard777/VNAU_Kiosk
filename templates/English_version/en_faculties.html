@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Факультети університету</title>
+    <title>University Faculties</title>
     <link rel="stylesheet" href="/static/css/facultets.css">
     <style>
         .language-header {
@@ -21,28 +21,29 @@
 <body>
     <div class="bg-particles" id="particles"></div>
     <div class="container">
-        <a href="/" class="back-btn">
+        <a href="{{ url_for('en_home') }}" class="back-btn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.707 11.293l-4.5-4.5a1 1 0 011.414-1.414l5.207 5.207a1 1 0 010 1.414l-5.207 5.207a1 1 0 01-1.414-1.414l4.5-4.5z" transform="rotate(-90 12 12)"/>
             </svg>
-            Назад
+            Back
         </a>
         <div class="language-header">
+            <div class="language-header">
             <a href="{{ url_for('faculties_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
             <a href="{{ url_for('en_faculties_page') }}"><img src="/static/images/usa.png" alt=""></a>
         </div>
-
-        <h1>Факультети університету</h1>
+        </div>
+        <h1>University Faculties</h1>
 
         <div class="faculties-grid">
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Агрономія'">
+            <div class="faculty-card" onclick="window.location.href='/video?faculty=Agronomy'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/Airbrush-Image-Enhancer-1756386538660-Photoroom.png" alt="Агрономія">
+                    <img src="/static/images/facultets_img/Airbrush-Image-Enhancer-1756386538660-Photoroom.png" alt="Agronomy">
                 </div>
-                <h3>Факультет агрономії, садівництва та захисту рослин</h3>
+                <h3>Faculty of Agronomy, Horticulture and Plant Protection</h3>
             </div>
-            <h3>Виберіть факультет для перегляду відео</h3>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Екологія'">
+            <h3>Choose a faculty to watch a video</h3>
+            <div class="faculty-card" onclick="window.location.href='/video?faculty=Ecology'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tree">
                         <path d="M18 20V8M6 20V8"></path>
@@ -50,8 +51,8 @@
                         <path d="M3 13h18a3 3 0 00-3-3H6a3 3 0 00-3 3z"></path>
                     </svg>
                 </div>
-                <h3>Факультет екології, біотехнології та садово-паркового господарства</h3>
-                <p>Сталий розвиток, біоресурси, ландшафтний дизайн.</p>
+                <h3>Faculty of Ecology, Biotechnology and Landscape Architecture</h3>
+                <p>Sustainable development, bioresources, landscape design.</p>
             </div>
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
@@ -64,10 +65,10 @@
                         <path d="M22 17V8a2 2 0 00-2-2H4a2 2 0 00-2 2v9M2 17h20"></path>
                     </svg>
                 </div>
-                <h3>Інженерно-технологічний факультет</h3>
-                <p>Аграрні технології, механізація та автоматизація.</p>
+                <h3>Faculty of Engineering and Technology</h3>
+                <p>Agricultural technologies, mechanization and automation.</p>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Економіка'">
+            <div class="faculty-card" onclick="window.location.href='/video?faculty=Economics'">
                 <div class="icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -75,8 +76,8 @@
                         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
                     </svg>
                 </div>
-                <h3>Факультет економіки, підприємництва, менеджменту та сфери послуг</h3>
-                <p>Економічні процеси, управління підприємствами.</p>
+                <h3>Faculty of Economics, Entrepreneurship, Management and Service Industry</h3>
+                <p>Economic processes, enterprise management.</p>
             </div>
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
@@ -85,8 +86,8 @@
                         <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path>
                     </svg>
                 </div>
-                <h3>Факультет обліку, фінансів та аудиту</h3>
-                <p>Бухгалтерський облік, фінансовий аналіз, аудит.</p>
+                <h3>Faculty of Accounting, Finance and Audit</h3>
+                <p>Accounting, financial analysis, audit.</p>
             </div>
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
@@ -94,8 +95,8 @@
                         <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"></path>
                     </svg>
                 </div>
-                <h3>Факультет менеджменту та права</h3>
-                <p>Організація, планування, юриспруденція.</p>
+                <h3>Faculty of Management and Law</h3>
+                <p>Organization, planning, jurisprudence.</p>
             </div>
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
@@ -105,8 +106,8 @@
                         <circle cx="15" cy="8" r="1.5"></circle>
                     </svg>
                 </div>
-                <h3>Факультет технологій виробництва і переробки продукції тваринництва</h3>
-                <p>Розведення тварин, харчові технології.</p>
+                <h3>Faculty of Animal Production and Processing Technologies</h3>
+                <p>Animal husbandry, food technologies.</p>
             </div>
             <div class="faculty-card" onclick="window.location.href='/video'">
                 <div class="icon">
@@ -114,8 +115,8 @@
                         <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                     </svg>
                 </div>
-                <h3>Факультет ветеринарної медицини</h3>
-                <p>Діагностика, лікування та профілактика хвороб тварин.</p>
+                <h3>Faculty of Veterinary Medicine</h3>
+                <p>Diagnosis, treatment and prevention of animal diseases.</p>
             </div>
         </div>
     </div>

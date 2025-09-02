@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Applicants</title>
+    <link rel="stylesheet" href="/static/css/abiturient.css">
+    <style>
+        .language-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0.4em;
+        }
+
+        .language-header img {
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('en_home') }}" class="back-btn">⬅ Back</a>
+    <div class="language-header">
+        <a href="{{ url_for('abiturient_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+        <a href="{{ url_for('en_abiturient_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    </div>
+    <div class="header-abit">
+        <h1>For Applicants</h1>
+        <p class="subtitle">All the necessary information for admission</p>
+    </div>
+    <div class="grid">
+        <a href="{{ url_for('en_rules_page') }}" class="card">
+            <img src="/static/images/abiturient_img/3319636_agreement_contract_document_page_paper_icon (1).png" alt="">
+            <span class="card-title">Admission Rules</span>
+            <p>Familiarize yourself with the current admission rules</p>
+        </a>
+        <a href="{{ url_for('en_specialities_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532620_award_badge_business_college_diploma_icon.png" alt="">
+            <span class="card-title">Specialties and Educational Programs</span>
+            <p>Choose your field of study</p>
+        </a>
+        <a href="{{ url_for('en_admission_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532632_analysis_chart_charts_diagram_graph_icon.png" alt="">
+            <span class="card-title">Admission Campaign</span>
+            <p>Learn about the stages of admission</p>
+        </a>
+        <a href="{{ url_for('en_documents_page') }}" class="card">
+            <img src="/static/images/abiturient_img/3319619_artical_law_news paper_paper_icon (1).png" alt="">
+            <span class="card-title">Required Documents</span>
+            <p>What documents are needed for admission</p>
+        </a>
+        <a href="{{ url_for('en_contacts_page') }}" class="card">
+            <img src="/static/images/abiturient_img/приймальна ком.png" alt="">
+            <span class="card-title">Contacts of the Admissions Committee</span>
+            <p>Contact us for a consultation</p>
+        </a>
+        <a href="{{ url_for('en_tution_page') }}" class="card">
+            <img src="/static/images/abiturient_img/3319605_bulb_dollar_financial_idea_light_icon.png" alt="">
+            <span class="card-title">Tuition Fee</span>
+            <p>Find out about payment and state-funded places</p>
+        </a>
+        <a href="{{ url_for('en_studentlife_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532648_diamond_gem_luxury_sparkle_value_icon.png" alt="">
+            <span class="card-title">Student Life</span>
+            <p>Leisure, dormitories, activities</p>
+        </a>
+        <a href="{{ url_for('en_about_page') }}" class="card">
+            <img src="/static/images/abiturient_img/532639_coin_currency_dollar_explore_funding_icon.png" alt="">
+            <span class="card-title">About the University</span>
+            <p>History, mission, and values of VNAU</p>
+        </a>
+    </div>
+    <footer>
+        © 2025 VNAU. Information on the site may be updated. For current data, please contact the Admissions Committee.
+    </footer>
+    <script src="/static/js/idle_mode.js"></script>
+</body>
+</html>

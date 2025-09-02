@@ -462,7 +462,8 @@
             width: 250px;
             } 
         }
-
+        
+        
         .language-header {
             display: flex;
             align-items: center;
@@ -472,7 +473,7 @@
 
         .language-header img {
             width: 40px;
-        }  
+        }
     </style>
 </head>
 <body>
@@ -484,12 +485,12 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-    <a href="{{ url_for('abiturient_page') }}" class="back-btn">
+    <a href="{{ url_for('en_abiturient_page') }}" class="back-btn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5"></path>
             <path d="M12 19l-7-7 7-7"></path>
         </svg>
-        Назад
+        Back
     </a>
     <div class="language-header">
         <a href="{{ url_for('rules_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
@@ -497,52 +498,52 @@
     </div>
     <div class="container">
         <div class="header">
-            <h1>Абітурієнтам</h1>
-            <p>Вся необхідна інформація для вступу</p>
+            <h1>For Applicants</h1>
+            <p>All the necessary information for admission</p>
         </div>
         <div class="main-content">
             <div class="info-section">
-                <h2>Загальні положення</h2>
+                <h2>General Provisions</h2>
                 <div class="list-item">
-                    <p>1. Правила прийому до Вінницького національного аграрного університету на навчання для здобуття вищої освіти в 2025 році (далі - Правила прийому) розроблені Приймальною комісією Вінницького національного аграрного університету (далі - Приймальна комісія) відповідно до Порядку прийому на навчання для здобуття вищої освіти в 2025 році затвердженого Наказом Міністерства освіти і науки України 10 лютого 2025 року за №168 зареєстрованого в Міністерстві юстиції України 26 лютого 2025 року за № 15/41360. Зміни до правил прийому внесено відповідно до Наказу Міністерства освіти і науки України 18 червня 2025 року за №877 зареєстровано в Міністерстві юстиції України 25 червня 2025 року №987/44393 «Про затвердження змін до Порядку прийому на навчання для здобуття вищої освіти в 2025 році із змінами і доповненнями, внесеними Наказом Міністерства освіти і науки України від 27 червня 2025 року №936».</p>
+                    <p>1. The rules of admission to Vinnytsia National Agrarian University for higher education studies in 2025 (hereinafter - Admission Rules) were developed by the Admissions Committee of Vinnytsia National Agrarian University (hereinafter - Admissions Committee) in accordance with the Procedure for Admission to Higher Education Studies in 2025, approved by Order of the Ministry of Education and Science of Ukraine dated February 10, 2025, No. 168, and registered with the Ministry of Justice of Ukraine on February 26, 2025, No. 15/41360. Changes to the admission rules were made in accordance with the Order of the Ministry of Education and Science of Ukraine dated June 18, 2025, No. 877, registered with the Ministry of Justice of Ukraine on June 25, 2025, No. 987/44393 "On the Approval of Changes to the Procedure for Admission to Higher Education Studies in 2025 with amendments and additions introduced by the Order of the Ministry of Education and Science of Ukraine dated June 27, 2025, No. 936."</p>
                 </div>
                 <div class="list-item">
-                    <p>2. Підставою для оголошення прийому на навчання є ліцензії Міністерства освіти і науки України на провадження освітньої діяльності на рівні (рівнях) вищої освіти, за освітніми програмами, що передбачають присвоєння професійної кваліфікації з професій, для яких запроваджено додаткове регулювання на певному рівні вищої освіти, та правила прийому, які затверджено відповідно до закону, Порядку та цих Правил прийому.</p>
+                    <p>2. The basis for announcing admission is the licenses of the Ministry of Education and Science of Ukraine for educational activities at the higher education level(s), for educational programs that provide for the award of a professional qualification in professions for which additional regulation has been introduced at a certain level of higher education, and the admission rules, which are approved in accordance with the law, the Procedure, and these Admission Rules.</p>
                 </div>
                 <div class="list-item">
-                    <p>3. Прийом на навчання здійснюється університетом на конкурсній основі.</p>
+                    <p>3. Admission to study is carried out by the university on a competitive basis.</p>
                 </div>
                 <div class="list-item">
-                    <p>4. Організацію прийому вступників здійснює приймальна комісія - робочий орган університету. Приймальна комісія діє згідно з положенням про приймальну комісію Вінницького національного аграрного університету, розробленим з урахуванням вимог законодавства, Положення про приймальну комісію вищого навчального закладу, затвердженого наказом Міністерства освіти і науки України від 15 жовтня 2015 року № 1085, зареєстрованого в Міністерстві юстиції України 04 листопада 2015 року за № 1353/27798. Положення про приймальну комісію закладу Вінницького національного аграрного університету оприлюднюється на його офіційному вебсайті. Ректор університету забезпечує дотримання законодавства України, зокрема Правил прийому, та Порядку, а також відкритість та прозорість роботи приймальної комісії. Рішення приймальної комісії, прийняте в межах її компетенції, є підставою для видання відповідного наказу та/або виконання процедур вступної кампанії. Усі питання, пов’язані з прийомом на навчання, вирішуються приймальною комісією на її засіданнях. Рішення приймальної комісії оприлюднюється на офіційному вебсайті університету не пізніше наступного дня після їх прийняття.</p>
+                    <p>4. The organization of applicant admission is carried out by the admissions committee - a working body of the university. The admissions committee acts in accordance with the regulations on the admissions committee of Vinnytsia National Agrarian University, developed taking into account the requirements of the law, the Regulations on the admissions committee of a higher educational institution, approved by the Order of the Ministry of Education and Science of Ukraine dated October 15, 2015, No. 1085, registered with the Ministry of Justice of Ukraine on November 04, 2015, No. 1353/27798. The regulations on the admissions committee of the Vinnytsia National Agrarian University are published on its official website. The Rector of the university ensures compliance with the legislation of Ukraine, in particular the Admission Rules and the Procedure, as well as the openness and transparency of the admissions committee's work. The decision of the admissions committee, made within its competence, is the basis for issuing a corresponding order and/or performing the procedures of the admission campaign. All issues related to admission to study are resolved by the admissions committee at its meetings. The decisions of the admissions committee are published on the official website of the university no later than the next day after their adoption.</p>
                 </div>
             </div>
 
             <div class="info-section">
-                <h2>Критерії оцінювання мотиваційного листа</h2>
+                <h2>Evaluation Criteria for the Motivation Letter</h2>
                 <div class="list-item">
-                    <p>1. Дотримання вимог офіційно-ділового стилю.</p>
+                    <p>1. Adherence to the requirements of the official business style.</p>
                 </div>
                 <div class="list-item">
-                    <p>2. Структура та логічність упорядкування смислових блоків.</p>
+                    <p>2. Structure and logical arrangement of semantic blocks.</p>
                 </div>
                 <div class="list-item">
-                    <p>3. Грамотність.</p>
+                    <p>3. Literacy.</p>
                 </div>
                 <div class="list-item">
-                    <p>4. Поєднання стислості й інформативності викладу.</p>
+                    <p>4. Combination of conciseness and informative presentation.</p>
                 </div>
                 <div class="list-item">
-                    <p>5. Уміння визначити мету, презентувати себе, та свою індивідуальність.</p>
+                    <p>5. Ability to define a goal, present oneself, and one's individuality.</p>
                 </div>
                 <div class="list-item">
-                    <p>6. Рівень мотивації щодо вступу до Вінницького національного аграрного університету на відповідну спеціальність.</p>
+                    <p>6. Level of motivation to enroll in Vinnytsia National Agrarian University for the corresponding specialty.</p>
                 </div>
             </div>
         </div>
 
         <footer class="footer">
             <div class="footer-logo">
-                © 2025 ВНАУ. Інформація на сайті може оновлюватися. Актуальні дані уточнюйте у Приймальній комісії
+                © 2025 VNAU. Information on the site may be updated. For current data, please contact the Admissions Committee.
             </div>
         </footer>
     </div>

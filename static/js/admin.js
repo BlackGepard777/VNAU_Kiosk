@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const descriptionInput = document.getElementById('description');
     const statusMessage = document.getElementById('status-message');
 
+    
     fetchBtn.addEventListener('click', () => {
         const url = youtubeUrlInput.value;
         if (!url) {
