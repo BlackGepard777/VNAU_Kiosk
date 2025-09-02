@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Абітурієнтам</title>
+    <title>For Applicants</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -171,6 +171,18 @@
             text-align: center;
         }
         
+        .main-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
         .info-section {
             margin-bottom: 30px;
         }
@@ -212,66 +224,22 @@
             color: var(--text);
         }
 
-        .specialties-list {
+        .contacts-list {
             list-style: none;
             padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
         }
 
-        .specialties-list li {
-            padding-left: 15px;
-            position: relative;
-            font-size: 1rem;
-            color: var(--text);
-        }
-
-        .specialties-list li::before {
-            content: '»';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .specialties-list .note {
-            font-style: italic;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 10px;
-            display: block;
-        }
-        
-        .program-section {
-            margin-bottom: 40px;
-        }
-
-        .program-section h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text);
+        .contacts-list li {
             margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .program-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .program-section li {
             font-size: 1rem;
-            line-height: 1.6;
             color: var(--text-light);
-            margin-bottom: 5px;
         }
-        
-        .program-section ul li::before {
-            content: '- ';
-            color: var(--accent);
+
+        .contacts-list li strong {
+            color: var(--text);
+            font-weight: 600;
         }
-        
+
         .footer {
             text-align: center;
             color: rgba(255, 255, 255, 0.8);
@@ -290,26 +258,43 @@
             color: var(--text-light);
             text-align: center;
         }
-        
-        .competitions-list {
-            list-style: none;
-            padding: 0;
-        }
 
-        .competitions-list li {
-            margin-bottom: 20px;
-        }
-
-        .competitions-list h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
+        .main-content .doc-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--text);
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
-        .competitions-list p {
+
+        .main-content .doc-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .main-content .doc-section ul li {
+            position: relative;
+            padding-left: 20px;
             font-size: 1rem;
-            line-height: 1.5;
             color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .main-content .doc-section ul li::before {
+            content: '•';
+            color: var(--accent);
+            font-size: 1.5rem;
+            line-height: 1;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        
+        .main-content .doc-section hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #5ED96B, #21332F);
+            margin: 20px 0;
         }
 
         @media (min-width: 1600px) {
@@ -337,16 +322,26 @@
                 font-size: 48px !important;
             }
 
-            .main-content h4 {
-                font-size: 28px !important;
-            }
-
-            .specialties-list {
-                margin-bottom: 100px;
+            .main-content .doc-section h3 {
+                margin-bottom: 30px;
+                margin-top: 30px;
+                font-size: 32px !important;
             }
 
             .footer-logo {
                 font-size: 18px !important;
+            }
+
+            .program-list {
+                margin-bottom: 100px;
+            }
+
+            .program-list .unaccredited-section {
+                font-size: 24px !important;
+            }
+
+            .program-list .accredited-section {
+                font-size: 24px !important;
             }
 
             .back-btn {
@@ -384,98 +379,47 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-    <a href="{{ url_for('abiturient_page') }}" class="back-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5"></path>
-                <path d="M12 19l-7-7 7-7"></path>
-            </svg>
-            Назад
-        </a>
+    <a href="{{ url_for('en_abiturient_page') }}" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"></path>
+            <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+        Back
+    </a>
     <div class="language-header">
-        <a href="{{ url_for('admission_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_admission_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        <a href="{{ url_for('documents_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+        <a href="{{ url_for('en_documents_page') }}"><img src="/static/images/usa.png" alt=""></a>
     </div>
     <div class="container">
         <div class="header">
-            <h1>Абітурієнтам</h1>
-            <p>Вся необхідна інформація для вступу</p>
+            <h1>For Applicants</h1>
+            <p>All the necessary information for admission</p>
         </div>
 
         <div class="main-content">
-            <h2 class="section-title">Основні дати вступної кампанії 2025</h2>
-
-            <div class="info-section">
-                <h3>Ступінь бакалавра</h3>
-                <ul class="info-list">
-                    <li>Реєстрація електронних кабінетів розпочинається з 01 липня 2025 року.</li>
-                    <li>Реєстрація заяв на участь у співбесідах для пільгових категорій проводиться з 03 липня по 10 липня 2025 року.</li>
-                    <li>Реєстрація електронних заяв розпочинається з 19 липня та завершується 01 серпня 2025 року.</li>
+            <div class="doc-section">
+                <h3>Main Documents:</h3>
+                <ul>
+                    <li>Ukrainian Citizen's Passport or ID card.</li>
+                    <li>Identification code (RNOKPP).</li>
+                    <li>Document of education: (for example, certificate of complete general secondary education) and its supplement.</li>
+                    <li>NMT Certificate: (NMT results from 2022, 2023, 2024 are accepted for bachelor's admission in 2025).</li>
+                    <li>Military registration document: for men (military ID or conscription certificate).</li>
+                    <li>Photographs: 3x4 cm (4 pieces).</li>
+                    <li>Motivation letter.</li>
+                </ul>
+                <h3>Additional Documents (if needed):</h3>
+                <ul>
+                    <li>Documents confirming benefits: for participation in the admission campaign.</li>
+                    <li>Medical certificate: form 086/o may be required for certain specialties.</li>
+                    <li>Documents for admission after 9th grade: certificate of basic general secondary education and its supplement.</li>
                 </ul>
             </div>
-
-            <div class="info-section">
-                <h3>Ступінь магістра</h3>
-                <ul class="info-list">
-                    <li>Реєстрація електронних кабінетів з 01 липня 2025 року.</li>
-                    <li>Реєстрація заяв на фахове вступне випробування розпочинається з 01 липня та завершується 29 липня 2025 року.</li>
-                    <li>Реєстрація електронних заяв на конкурсний відбір розпочинається з 08 серпня та завершується 25 серпня 2025 року.</li>
-                </ul>
-            </div>
-
-            <h2 class="section-title">Університет готує фахівців за наступними спеціальностями:</h2>
-            <ul class="specialties-list">
-                <li>Агрономія</li>
-                <li>Садівництво та виноградарство</li>
-                <li>Захист і карантин рослин</li>
-                <li>Лісове господарство</li>
-                <li>Садово-паркове господарство</li>
-                <li>Екологія</li>
-                <li>Туризм</li>
-                <li>Харчові технології</li>
-                <li>Технологічна експертиза, якість та безпечність харчових продуктів*</li>
-                <li>Агроінженерія</li>
-                <li>Геоінформаційні технології в агроінженерії*</li>
-                <li>Електроенергетика, електротехніка та електромеханіка</li>
-                <li>Галузеве машинобудування</li>
-                <li>Облік і оподаткування</li>
-                <li>Фінанси, банківська справа, страхування та фондовий ринок</li>
-                <li>Економіка та міжнародні економічні відносини</li>
-                <li>Комп'ютерні науки</li>
-                <li>Торгівля</li>
-                <li>Готельно-ресторанна справа та кейтеринг</li>
-                <li>Публічне управління та адміністрування</li>
-                <li>Менеджмент</li>
-                <li>Маркетинг</li>
-                <li>Право</li>
-                <li>Ветеринарна медицина* (ступінь магістра)</li>
-                <li>Ветеринарна гігієна, санітарія і експертиза*</li>
-                <li class="note">* - тільки денна форма навчання</li>
-            </ul>
-
-            <h2 class="section-title">Конкурсні предмети (НМТ 2025 р., 2024 р., 2023 р., 2022 р.) та мотиваційний лист</h2>
-            <ul class="competitions-list">
-                <li>
-                    <h4>Національний мультипредметний тест 2025 р.</h4>
-                    <p>(українська мова, математика, історія України — основний блок; четвертий предмет на вибір — іноземна мова, або біологія, або українська література, або фізика, або хімія, або географія)</p>
-                </li>
-                <li>
-                    <h4>Національний мультипредметний тест 2024 р.</h4>
-                    <p>(українська мова, математика, історія України — основний блок; четвертий предмет на вибір — іноземна мова, або біологія, або українська література, або фізика, або хімія, або географія).</p>
-                </li>
-                <li>
-                    <h4>Національний мультипредметний тест 2023 р.</h4>
-                    <p>(українська мова, математика — основний блок; третій предмет на вибір — історія України, або іноземна мова, або біологія, або фізика, або хімія).</p>
-                </li>
-                <li>
-                    <h4>Національний мультипредметний тест 2022 р.</h4>
-                    <p>(українська мова, математика, історія України).</p>
-                </li>
-            </ul>
         </div>
 
         <footer class="footer">
             <div class="footer-logo">
-                © 2025 ВНАУ. Інформація на сайті може оновлюватися. Актуальні дані уточнюйте у Приймальній комісії
+                © 2025 VNAU. Information on the website may be updated. For up-to-date information, please contact the Admissions Committee
             </div>
         </footer>
     </div>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Абітурієнтам</title>
+    <title>For Applicants</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -130,26 +130,29 @@
 
         .back-btn {
             position: absolute;
-            top: 28px;
-            left: 28px;
-            text-decoration: none;
+            width: 150px;
+            top: 32px;
+            left: 18px;
+            font-size: 1.1em;
             color: var(--accent);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            background: rgba(33, 51, 47, 0.7);
-            padding: 10px 22px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(94, 217, 107, 0.08);
+            background: rgba(33,51,47,0.85);
+            padding: 10px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(94,217,107,0.10);
             border: 1px solid var(--border);
             transition: background 0.2s, color 0.2s, transform 0.2s;
-            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
         }
 
         .back-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
         }
 
         .main-content {
@@ -171,7 +174,7 @@
             text-align: center;
         }
 
-        .section-title::after {
+        /* .section-title::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -181,7 +184,7 @@
             height: 3px;
             background: var(--accent);
             border-radius: 2px;
-        }
+        } */
 
         .program-list {
             list-style: none;
@@ -262,16 +265,66 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .header {
-                padding: 30px 20px;
+        @media (min-width: 1600px) {
+            body,
+            .main-content,
+            .main-content h2,
+            .main-content h3,
+            .main-content p,
+            .main-content li,
+            .main-content a,
+            .main-content ol,
+            .main-content ul {
+                font-size: 28px !important;
             }
-            .main-content {
-                padding: 20px;
+
+            .main-content h1 {
+                font-size: 64px !important;
             }
-            .section-title {
-                font-size: 1.5rem;
+
+            .main-content h2 {
+                font-size: 48px !important;
             }
+
+            .footer-logo {
+                font-size: 18px !important;
+            }
+
+            .program-list {
+                margin-bottom: 100px;
+            }
+
+            .program-list .unaccredited-section {
+                font-size: 24px !important;
+            }
+
+            .program-list .accredited-section {
+                font-size: 24px !important;
+            }
+
+            .back-btn {
+            top: 48px;
+            left: 48px;
+            font-size: 1.25em;
+            padding: 16px 40px;
+            border-radius: 18px;
+            width: 250px;
+            } 
+
+            .footer-logo {
+                font-size: 18px !important;
+            }
+        }
+
+        .language-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0.4em;
+        }
+
+        .language-header img {
+            width: 40px;
         }
     </style>
 </head>
@@ -284,106 +337,109 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-
+    <a href="{{ url_for('en_abiturient_page') }}" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"></path>
+            <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+        Back
+    </a>
+    <div class="language-header">
+        <a href="{{ url_for('specialities_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+        <a href="{{ url_for('en_specialities_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    </div>
     <div class="container">
-        <a href="{{ url_for('abiturient_page') }}" class="back-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5"></path>
-                <path d="M12 19l-7-7 7-7"></path>
-            </svg>
-            Назад
-        </a>
         <div class="header">
-            <h1>Абітурієнтам</h1>
-            <p>Вся необхідна інформація для вступу</p>
+            <h1>For Applicants</h1>
+            <p>All the necessary information for admission</p>
         </div>
 
         <div class="main-content">
-            <h2 class="section-title">Перелік освітніх програм на бакалаврському рівні вищої освіти</h2>
+            <h2 class="section-title">List of Educational Programs at the Bachelor's Level of Higher Education</h2>
             <div class="program-list">
-                <div class="accredited-section">АКРЕДИТОВАНІ:</div>
+                <div class="accredited-section">ACCREDITED:</div>
                 <ol class="accredited-list">
-                    <li>Економіка</li>
-                    <li>Фінанси, банківська справа та страхування</li>
-                    <li>Облік і оподаткування</li>
-                    <li>Менеджмент</li>
-                    <li>Право</li>
-                    <li>Екологія</li>
-                    <li>Галузеве машинобудування</li>
-                    <li>Електроенергетика, електротехніка та електромеханіка</li>
-                    <li>Харчові технології</li>
-                    <li>Агрономія</li>
-                    <li>Садівництво та виноградарство</li>
-                    <li>Технологія виробництва і переробки продукції тваринництва</li>
-                    <li>Лісове господарство</li>
-                    <li>Садово-паркове господарство</li>
-                    <li>Агроінженерія</li>
-                    <li>Готельно-ресторанна справа</li>
-                    <li>Туризм</li>
-                    <li>Публічне управління та адміністрування</li>
-                    <li>Захист і карантин рослин</li>
-                    <li>Підприємництво, торгівля та біржова діяльність</li>
-                    <li>Маркетинг</li>
-                    <li>Комп'ютерні науки</li>
+                    <li>Economics</li>
+                    <li>Finance, Banking and Insurance</li>
+                    <li>Accounting and Taxation</li>
+                    <li>Management</li>
+                    <li>Law</li>
+                    <li>Ecology</li>
+                    <li>Branch Machine Building</li>
+                    <li>Electric Power Engineering, Electrical Engineering and Electromechanics</li>
+                    <li>Food Technologies</li>
+                    <li>Agronomy</li>
+                    <li>Horticulture and Viticulture</li>
+                    <li>Technology of Production and Processing of Livestock Products</li>
+                    <li>Forestry</li>
+                    <li>Horticultural and Park Management</li>
+                    <li>Agroengineering</li>
+                    <li>Hotel and Restaurant Business</li>
+                    <li>Tourism</li>
+                    <li>Public Administration and Management</li>
+                    <li>Plant Protection and Quarantine</li>
+                    <li>Entrepreneurship, Trade and Exchange Activities</li>
+                    <li>Marketing</li>
+                    <li>Computer Science</li>
                 </ol>
-                <div class="unaccredited-section">НЕ АКРЕДИТОВАНІ:</div>
+                <div class="unaccredited-section">NOT ACCREDITED:</div>
                 <ol class="unaccredited-list" start="23">
-                    <li>Технологічна експертиза, безпечність та якість харчової продукції</li>
-                    <li>Геоінформаційні технології в агроінженерії</li>
+                    <li>Technological Expertise, Safety and Quality of Food Products</li>
+                    <li>Geoinformation Technologies in Agroengineering</li>
                 </ol>
             </div>
 
-            <h2 class="section-title">Перелік освітніх програм на магістерському рівні вищої освіти</h2>
+            <h2 class="section-title">List of Educational Programs at the Master's Level of Higher Education</h2>
             <div class="program-list">
-                <div class="accredited-section">АКРЕДИТОВАНІ:</div>
+                <div class="accredited-section">ACCREDITED:</div>
                 <ol class="accredited-list">
-                    <li>Економіка</li>
-                    <li>Фінанси, банківська справа та страхування</li>
-                    <li>Облік і оподаткування</li>
-                    <li>Менеджмент</li>
-                    <li>Право</li>
-                    <li>Екологія</li>
-                    <li>Галузеве машинобудування</li>
-                    <li>Електроенергетика, електротехніка та електромеханіка</li>
-                    <li>Харчові технології</li>
-                    <li>Агрономія</li>
-                    <li>Технологія виробництва і переробки продукції тваринництва</li>
-                    <li>Садово-паркове господарство</li>
-                    <li>Агроінженерія</li>
-                    <li>Готельно-ресторанна справа</li>
-                    <li>Туризм</li>
-                    <li>Публічне управління та адміністрування</li>
-                    <li>Ветеринарна гігієна, санітарія і експертиза</li>
+                    <li>Economics</li>
+                    <li>Finance, Banking and Insurance</li>
+                    <li>Accounting and Taxation</li>
+                    <li>Management</li>
+                    <li>Law</li>
+                    <li>Ecology</li>
+                    <li>Branch Machine Building</li>
+                    <li>Electric Power Engineering, Electrical Engineering and Electromechanics</li>
+                    <li>Food Technologies</li>
+                    <li>Agronomy</li>
+                    <li>Technology of Production and Processing of Livestock Products</li>
+                    <li>Horticultural and Park Management</li>
+                    <li>Agroengineering</li>
+                    <li>Hotel and Restaurant Business</li>
+                    <li>Tourism</li>
+                    <li>Public Administration and Management</li>
+                    <li>Veterinary Hygiene, Sanitation and Expertise</li>
                 </ol>
-                <div class="unaccredited-section">НЕ АКРЕДИТОВАНІ:</div>
+                <div class="unaccredited-section">NOT ACCREDITED:</div>
                 <ol class="unaccredited-list" start="18">
-                    <li>Ветеринарна медицина</li>
-                    <li>Лісове господарство</li>
+                    <li>Veterinary Medicine</li>
+                    <li>Forestry</li>
                 </ol>
             </div>
 
-            <h2 class="section-title">Перелік освітніх програм на освітньо-науковому рівні вищої освіти</h2>
+            <h2 class="section-title">List of Educational Programs at the Educational and Scientific Level of Higher Education</h2>
             <div class="program-list">
-                <div class="accredited-section">АКРЕДИТОВАНІ:</div>
+                <div class="accredited-section">ACCREDITED:</div>
                 <ol class="accredited-list">
-                    <li>Економіка</li>
-                    <li>Матеріалознавство</li>
-                    <li>Галузеве машинобудування</li>
-                    <li>Агрономія</li>
-                    <li>Технологія виробництва і переробки продукції тваринництва</li>
-                    <li>Облік і оподаткування</li>
+                    <li>Economics</li>
+                    <li>Materials Science</li>
+                    <li>Branch Machine Building</li>
+                    <li>Agronomy</li>
+                    <li>Technology of Production and Processing of Livestock Products</li>
+                    <li>Accounting and Taxation</li>
                 </ol>
-                <div class="unaccredited-section">НЕ АКРЕДИТОВАНІ:</div>
+                <div class="unaccredited-section">NOT ACCREDITED:</div>
                 <ol class="unaccredited-list" start="7">
-                    <li>Харчові технології</li>
-                    <li>Ветеринарна гігієна, санітарія і експертиза</li>
+                    <li>Food Technologies</li>
+                    <li>Veterinary Hygiene, Sanitation and Expertise</li>
                 </ol>
             </div>
         </div>
 
         <footer class="footer">
             <div class="footer-logo">
-                © 2025 ВНАУ. Інформація на сайті може оновлюватися. Актуальні дані уточнюйте у Приймальній комісії
+                © 2025 VNAU. Information on the site may be updated. For current data, please contact the Admissions Committee.
             </div>
         </footer>
     </div>

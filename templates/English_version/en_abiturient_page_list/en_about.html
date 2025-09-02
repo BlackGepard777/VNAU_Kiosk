@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Абітурієнтам</title>
+    <title>For Applicants</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -165,40 +165,54 @@
         .main-content h2 {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text);
+            color: var(--accent);
             text-align: center;
             margin-bottom: 20px;
             position: relative;
         }
+        
+        .main-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
 
         .info-section {
             margin-bottom: 30px;
-        }
-        
-        .info-section h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .info-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .info-list li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-            font-size: 1rem;
-            color: var(--text-light);
             line-height: 1.6;
         }
 
-        .info-list li::before {
+        .info-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .info-section p, .info-section ul {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .info-section ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .info-section ul li::before {
             content: '•';
             color: var(--accent);
             font-size: 1.5rem;
@@ -208,18 +222,30 @@
             top: 2px;
         }
 
-        .info-list li strong {
-            color: var(--text);
+        .quote-block {
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 40px 0;
+            color: var(--accent);
         }
 
-        .text-block {
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-top: 20px;
-            color: var(--text);
+        .quote-block::before, .quote-block::after {
+            content: '"';
+            font-size: 2rem;
+            line-height: 0;
+            vertical-align: middle;
+            color: var(--accent);
         }
-        
+
+        .quote-block::before {
+            margin-right: 5px;
+        }
+
+        .quote-block::after {
+            margin-left: 5px;
+        }
+
         .footer {
             text-align: center;
             color: rgba(255, 255, 255, 0.8);
@@ -238,12 +264,12 @@
             color: var(--text-light);
             text-align: center;
         }
-        
-        .main-content .hr-separator {
+
+        .hr-separator {
             border: 0;
             height: 1px;
-            background: linear-gradient(to right, #5ED96B, #21332F);
-            margin: 20px 0;
+            background: linear-gradient(to right, var(--accent), var(--card-bg));
+            margin: 30px 0;
         }
 
         @media (min-width: 1600px) {
@@ -307,6 +333,7 @@
         .language-header img {
             width: 40px;
         }
+
     </style>
 </head>
 <body>
@@ -318,73 +345,50 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-    <a href="{{ url_for('abiturient_page') }}" class="back-btn">
+    <a href="{{ url_for('en_abiturient_page') }}" class="back-btn">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5"></path>
             <path d="M12 19l-7-7 7-7"></path>
         </svg>
-        Назад
+        Back
     </a>
     <div class="language-header">
-        <a href="{{ url_for('studentlife_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_studentlife_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        <a href="{{ url_for('about_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+        <a href="{{ url_for('en_about_page') }}"><img src="/static/images/usa.png" alt=""></a>
     </div>
     <div class="container">
         <div class="header">
-            <h1>Абітурієнтам</h1>
-            <p>Вся необхідна інформація для вступу</p>
+            <h1>For Applicants</h1>
+            <p>All the necessary information for admission</p>
         </div>
 
         <div class="main-content">
             <hr class="hr-separator">
-            <h2>Студентське життя у ВНАУ — це більше, ніж навчання!</h2>
-            
             <div class="info-section">
-                <h3>Сучасні гуртожитки</h3>
-                <ul class="info-list">
-                    <li>Проведено нові ремонти в кімнатах</li>
-                    <li>Зручні умови проживання для студентів</li>
-                    <li>Дружня атмосфера</li>
-                </ul>
+                <p>Today, the Ukrainian land needs qualified agriculturists—people who understand and respect it. This is exactly the kind of specialists that Vinnytsia National Agrarian University trains within its walls.</p>
+                <p><strong>VNAU</strong> is a powerful center for education and science with modern material and technical facilities, an extensive network of branches and research centers, and is widely known in Ukraine and abroad.</p>
+                <p>The university includes: 3 educational and research institutes—agrotechnologies and nature management; economics and management; peace, social communications, and rehabilitation; and 8 faculties: agronomy, horticulture, and plant protection; ecology, forestry, and landscape architecture; economics, information technologies, and services; accounting, finance, and auditing; management and law; engineering and technology; production, processing, and robotics in animal husbandry; and veterinary medicine.</p>
             </div>
-
-            <div class="info-section">
-                <h3>Досвідчені викладачі</h3>
-                <ul class="info-list">
-                    <li>Високий рівень професіоналізму</li>
-                    <li>Підтримка та допомога студентів</li>
-                    <li>Індивідуальний підхід у навчанні для кожного</li>
-                </ul>
-            </div>
-
-            <div class="info-section">
-                <h3>Доступна освіта</h3>
-                <ul class="info-list">
-                    <li>Низька вартість навчання</li>
-                    <li>Диплом міжнародного рівня</li>
-                    <li>Дуальна освіта</li>
-                </ul>
-            </div>
-
-            <div class="info-section">
-                <h3>Яскраве студентське життя</h3>
-                <ul class="info-list">
-                    <li>Культурні та спортивні заходи</li>
-                    <li>Наукові конференції</li>
-                    <li>Нові знайомства, дружба та командний дух</li>
-                </ul>
-            </div>
-
             <hr class="hr-separator">
-
-            <div class="text-block">
-                <p>ВНАУ — це місце, де поєднуються комфорт, знання та розвиток. Тут студенти не лише отримують якісну освіту, а й живуть щасливим та продуктивним життям!</p>
+            <div class="info-section">
+                <p>The structure of VNAU also includes: the Separate Structural Unit "Technological and Industrial Professional College of Vinnytsia National Agrarian University," the Separate Structural Unit "Ladyzhyn Professional College of Vinnytsia National Agrarian University," the Separate Structural Unit "Mohyliv-Podilskyi Technological and Economic Professional College of Vinnytsia National Agrarian University," the Separate Structural Unit "Nemyriv Professional College of Construction, Economics, and Design of Vinnytsia National Agrarian University," and the Separate Structural Unit "Cherniatyn Professional College of Vinnytsia National Agrarian University."</p>
+            </div>
+            <hr class="hr-separator">
+            <div class="info-section">
+                <p>The Agrarian University provides training through a multi-level system: adaptation of school graduates to university studies, training of junior specialists, bachelors, masters, candidates, and doctors of sciences, and doctors of philosophy.</p>
+                <p>The university expands its cooperation with leading Ukrainian and global enterprises and institutions. After all, only through such cooperation can a truly highly qualified specialist be trained, one who is capable of successfully competing in the modern, dynamic labor market.</p>
+                <p>VNAU is actively developing a system of dual education. This provides the opportunity to simultaneously study at the university and work in your specialty, gaining experience from the best mentors at leading Ukrainian companies—VNAU's stakeholders. The implementation of dual education improves the university's material and technical base and opens new educational and research centers.</p>
+                <p>The best university students deepen their theoretical knowledge during practical training and internships at 16 educational institutions and leading agricultural enterprises in Europe and the USA.</p>
+            </div>
+            <hr class="hr-separator">
+            <div class="info-section">
+                <p>VNAU is a leading educational institution in Ukraine for implementing modern innovative methods for organizing the educational process, electronic learning tools, residual knowledge testing, and more. The "Sokrat" electronic system for managing the quality of educational activities is the university's own development and a global information base for managing the educational process; electronic library support; the university repository; and the university's scientific and consultative educational environment.</p>
             </div>
         </div>
 
         <footer class="footer">
             <div class="footer-logo">
-                © 2025 ВНАУ. Інформація на сайті може оновлюватися. Актуальні дані уточнюйте у Приймальній комісії
+                © 2025 VNAU. Information on the website may be updated. Please check with the Admissions Committee for current data.
             </div>
         </footer>
     </div>

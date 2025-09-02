@@ -130,26 +130,29 @@
 
         .back-btn {
             position: absolute;
-            top: 28px;
-            left: 28px;
-            text-decoration: none;
+            width: 150px;
+            top: 32px;
+            left: 18px;
+            font-size: 1.1em;
             color: var(--accent);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            background: rgba(33, 51, 47, 0.7);
-            padding: 10px 22px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(94, 217, 107, 0.08);
+            background: rgba(33,51,47,0.85);
+            padding: 10px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(94,217,107,0.10);
             border: 1px solid var(--border);
             transition: background 0.2s, color 0.2s, transform 0.2s;
-            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
         }
 
         .back-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
         }
 
         .main-content {
@@ -162,7 +165,7 @@
             margin-top: 40px;
         }
 
-        .main-content h2 {
+        .section-title {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--accent);
@@ -170,8 +173,8 @@
             position: relative;
             text-align: center;
         }
-        
-        .main-content h2::after {
+
+        /* .section-title::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -181,63 +184,66 @@
             height: 3px;
             background: var(--accent);
             border-radius: 2px;
-        }
+        } */
 
-        .info-section {
-            margin-bottom: 30px;
-        }
-
-        .info-section h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .info-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .info-list li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-            font-size: 1rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        .info-list li::before {
-            content: '•';
-            color: var(--accent);
-            font-size: 1.5rem;
-            line-height: 1;
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-
-        .info-list li strong {
-            color: var(--text);
-        }
-
-        .contacts-list {
+        .program-list {
             list-style: none;
             padding: 0;
         }
 
-        .contacts-list li {
-            margin-bottom: 15px;
+        .program-list li {
             font-size: 1rem;
+            line-height: 1.6;
             color: var(--text-light);
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .program-list li::before {
+            content: attr(data-number);
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            text-align: right;
+            padding-right: 5px;
         }
 
-        .contacts-list li strong {
-            color: var(--text);
+        .program-list .accredited-section, .program-list .unaccredited-section {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
             font-weight: 600;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .program-list .unaccredited-section {
+            color: #d95e6b; /* A subtle red for contrast */
+        }
+        
+        .accredited-list, .unaccredited-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .accredited-list li, .unaccredited-list li {
+            padding-left: 20px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .accredited-list li::before, .unaccredited-list li::before {
+            content: counter(item);
+            counter-increment: item;
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .unaccredited-list li::before {
+            color: #d95e6b;
         }
 
         .footer {
@@ -259,44 +265,6 @@
             text-align: center;
         }
 
-        .main-content .doc-section h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 15px;
-        }
-
-        .main-content .doc-section ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .main-content .doc-section ul li {
-            position: relative;
-            padding-left: 20px;
-            font-size: 1rem;
-            color: var(--text-light);
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        
-        .main-content .doc-section ul li::before {
-            content: '•';
-            color: var(--accent);
-            font-size: 1.5rem;
-            line-height: 1;
-            position: absolute;
-            left: 0;
-            top: 2px;
-        }
-        
-        .main-content .doc-section hr {
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, #5ED96B, #21332F);
-            margin: 20px 0;
-        }
-
         @media (min-width: 1600px) {
             body,
             .main-content,
@@ -310,22 +278,12 @@
                 font-size: 28px !important;
             }
 
-            .header p {
-                font-size: 28px !important;
-            }
-
             .main-content h1 {
                 font-size: 64px !important;
             }
 
             .main-content h2 {
                 font-size: 48px !important;
-            }
-
-            .main-content .doc-section h3 {
-                margin-bottom: 30px;
-                margin-top: 30px;
-                font-size: 32px !important;
             }
 
             .footer-logo {
@@ -380,15 +338,15 @@
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
     <a href="{{ url_for('abiturient_page') }}" class="back-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5"></path>
-            <path d="M12 19l-7-7 7-7"></path>
-        </svg>
-        Назад
-    </a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5"></path>
+                <path d="M12 19l-7-7 7-7"></path>
+            </svg>
+            Назад
+        </a>
     <div class="language-header">
-        <a href="{{ url_for('documents_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_documents_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        <a href="{{ url_for('specialities_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+        <a href="{{ url_for('en_specialities_page') }}"><img src="/static/images/usa.png" alt=""></a>
     </div>
     <div class="container">
         <div class="header">
@@ -397,23 +355,85 @@
         </div>
 
         <div class="main-content">
-            <div class="doc-section">
-                <h3>Основні документи:</h3>
-                <ul>
-                    <li>Паспорт громадянина України або ID-картка.</li>
-                    <li>Ідентифікаційний код (РНОКПП).</li>
-                    <li>Документ про освіту: (наприклад, атестат про повну загальну середню освіту) та додаток до нього.</li>
-                    <li>Сертифікат НМТ: (результати НМТ за 2022, 2023, 2024 роки приймаються для вступу на бакалавр в 2025 році).</li>
-                    <li>Військово-обліковий документ: для чоловіків (військовий квиток або приписне посвідчення).</li>
-                    <li>Фотокартки: розміром 3х4 см (4 штуки).</li>
-                    <li>Мотиваційний лист.</li>
-                </ul>
-                <h3>Додаткові документи (за потреби):</h3>
-                <ul>
-                    <li>Документи, що підтверджують наявність пільг: для участі у вступній кампанії.</li>
-                    <li>Медична довідка: за формою 086/о може знадобитися для окремих спеціальностей.</li>
-                    <li>Документи для вступу після 9 класу: свідоцтво про базову загальну середню освіту та додаток до нього.</li>
-                </ul>
+            <h2 class="section-title">Перелік освітніх програм на бакалаврському рівні вищої освіти</h2>
+            <div class="program-list">
+                <div class="accredited-section">АКРЕДИТОВАНІ:</div>
+                <ol class="accredited-list">
+                    <li>Економіка</li>
+                    <li>Фінанси, банківська справа та страхування</li>
+                    <li>Облік і оподаткування</li>
+                    <li>Менеджмент</li>
+                    <li>Право</li>
+                    <li>Екологія</li>
+                    <li>Галузеве машинобудування</li>
+                    <li>Електроенергетика, електротехніка та електромеханіка</li>
+                    <li>Харчові технології</li>
+                    <li>Агрономія</li>
+                    <li>Садівництво та виноградарство</li>
+                    <li>Технологія виробництва і переробки продукції тваринництва</li>
+                    <li>Лісове господарство</li>
+                    <li>Садово-паркове господарство</li>
+                    <li>Агроінженерія</li>
+                    <li>Готельно-ресторанна справа</li>
+                    <li>Туризм</li>
+                    <li>Публічне управління та адміністрування</li>
+                    <li>Захист і карантин рослин</li>
+                    <li>Підприємництво, торгівля та біржова діяльність</li>
+                    <li>Маркетинг</li>
+                    <li>Комп'ютерні науки</li>
+                </ol>
+                <div class="unaccredited-section">НЕ АКРЕДИТОВАНІ:</div>
+                <ol class="unaccredited-list" start="23">
+                    <li>Технологічна експертиза, безпечність та якість харчової продукції</li>
+                    <li>Геоінформаційні технології в агроінженерії</li>
+                </ol>
+            </div>
+
+            <h2 class="section-title">Перелік освітніх програм на магістерському рівні вищої освіти</h2>
+            <div class="program-list">
+                <div class="accredited-section">АКРЕДИТОВАНІ:</div>
+                <ol class="accredited-list">
+                    <li>Економіка</li>
+                    <li>Фінанси, банківська справа та страхування</li>
+                    <li>Облік і оподаткування</li>
+                    <li>Менеджмент</li>
+                    <li>Право</li>
+                    <li>Екологія</li>
+                    <li>Галузеве машинобудування</li>
+                    <li>Електроенергетика, електротехніка та електромеханіка</li>
+                    <li>Харчові технології</li>
+                    <li>Агрономія</li>
+                    <li>Технологія виробництва і переробки продукції тваринництва</li>
+                    <li>Садово-паркове господарство</li>
+                    <li>Агроінженерія</li>
+                    <li>Готельно-ресторанна справа</li>
+                    <li>Туризм</li>
+                    <li>Публічне управління та адміністрування</li>
+                    <li>Ветеринарна гігієна, санітарія і експертиза</li>
+                </ol>
+                <div class="unaccredited-section">НЕ АКРЕДИТОВАНІ:</div>
+                <ol class="unaccredited-list" start="18">
+                    <li>Ветеринарна медицина</li>
+                    <li>Лісове господарство</li>
+                </ol>
+            </div>
+
+            <h2 class="section-title">Перелік освітніх програм на освітньо-науковому рівні вищої освіти</h2>
+            <div class="program-list">
+                <div class="accredited-section">АКРЕДИТОВАНІ:</div>
+                <ol class="accredited-list">
+                    <li>Економіка</li>
+                    <li>Матеріалознавство</li>
+                    <li>Галузеве машинобудування</li>
+                    <li>Агрономія</li>
+                    <li>Технологія виробництва і переробки продукції тваринництва</li>
+                    <li>Облік і оподаткування</li>
+                </ol>
+                <div class="unaccredited-section">НЕ АКРЕДИТОВАНІ:</div>
+                <ol class="unaccredited-list" start="7">
+                    <li>Харчові технології</li>
+                    <li>Ветеринарна гігієна, санітарія і експертиза</li>
+                </ol>
             </div>
         </div>
 

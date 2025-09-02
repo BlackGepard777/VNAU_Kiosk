@@ -1,10 +1,16 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 import database
 from bs4 import BeautifulSoup
 import requests
 from urllib.parse import urljoin, unquote
+import bcrypt
+import os
 
-app = Flask(__name__)
+app = Flask(__name__) 
+app.secret_key = os.environ.get("SECRET_KEY")
+USERS_DB = "users.db"
+
+
 
 @app.route("/idle")
 def idle_page():
@@ -19,12 +25,16 @@ def home():
     return render_template("index.html")
 
 @app.route("/en")
-def english():
-    return render_template("usa.html")
+def en_home():
+    return render_template("English_version/en_index.html")
 
 @app.route("/faculties")
 def faculties_page():
     return render_template("faculties.html")
+
+@app.route("/en_faculties")
+def en_faculties_page():
+    return render_template("English_version/en_faculties.html")
 
 @app.route("/video")
 def video_page():
@@ -141,11 +151,9 @@ def get_announcement_detail():
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
 
-        # Заголовок
         title_element = soup.find("h1", class_="content-page-title") or soup.find("title")
         title = title_element.get_text(strip=True) if title_element else "Без заголовку"
 
-        # Контент — шукаємо кілька можливих контейнерів
         content_element = (
             soup.find("div", class_="content-node-body") or
             soup.find("div", class_="field-items") or
@@ -172,17 +180,25 @@ def get_announcement_detail():
 def schedule_page():
     return render_template("schedule.html")
 
+@app.route("/en_schedule")
+def en_schedule_page():
+    return render_template("English_version/en_schedule.html")
+
 @app.route("/abiturient")
 def abiturient_page():
     return render_template("abiturient.html")
+
+@app.route("/en_abiturient")
+def en_abiturient_page():
+    return render_template("English_version/en_abiturient.html")
 
 @app.route("/rules")
 def rules_page():
     return render_template("abiturient_page_list/rules.html")
 
-@app.route("/specialties")
-def specialties_page():
-    return render_template("abiturient_page_list/specialties.html")
+@app.route("/specialities")
+def specialities_page():
+    return render_template("abiturient_page_list/specialities.html")
 
 @app.route("/admission")
 def admission_page():
@@ -196,9 +212,9 @@ def documents_page():
 def contacts_page():
     return render_template("abiturient_page_list/contacts.html")
 
-@app.route("/tuition")
-def tuition_page():
-    return render_template("abiturient_page_list/tuition.html")
+@app.route("/tution")
+def tution_page():
+    return render_template("abiturient_page_list/tution.html")
 
 @app.route("/studentlife")
 def studentlife_page():
@@ -208,20 +224,95 @@ def studentlife_page():
 def about_page():
     return render_template("abiturient_page_list/about.html")
 
+@app.route("/en_rules")
+def en_rules_page():
+    return render_template("English_version/en_abiturient_page_list/en_rules.html")
+
+@app.route("/en_specialities")
+def en_specialities_page():
+    return render_template("English_version/en_abiturient_page_list/en_specialities.html")
+
+@app.route("/en_admission")
+def en_admission_page():
+    return render_template("English_version/en_abiturient_page_list/en_admission.html")
+
+@app.route("/en_documents")
+def en_documents_page():
+    return render_template("English_version/en_abiturient_page_list/en_documents.html")
+
+@app.route("/en_contacts")
+def en_contacts_page():
+    return render_template("English_version/en_abiturient_page_list/en_contacts.html")
+
+@app.route("/en_tution")
+def en_tution_page():
+    return render_template("English_version/en_abiturient_page_list/en_tution.html")
+
+@app.route("/en_studentlife")
+def en_studentlife_page():
+    return render_template("English_version/en_abiturient_page_list/en_studentlife.html")
+
+@app.route("/en_about")
+def en_about_page():
+    return render_template("English_version/en_abiturient_page_list/en_about.html")
+
 @app.route("/developments")
 def developments_page():
     return render_template("developments.html")
 
+@app.route("/en_developments")
+def en_developments_page():
+    return render_template("English_version/en_developments.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+        
+        user = database.get_user_by_credentials(username, password)
+        
+        if user:
+            session['user'] = user
+            return redirect(url_for('admin_page'))
+        else:
+            return render_template("login.html", error="Невірний логін або пароль")
+    
+    if 'user' in session:
+        return redirect(url_for('admin_page'))
+    
+    return render_template("login.html")
 
 @app.route("/admin")
 def admin_page():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+
     videos = database.get_videos(limit=1000, offset=0)
     idle_videos = database.get_idle_videos()
     faculties = [
         "Агрономія", "Екологія", "Інженерія", "Економіка",
         "Облік і фінанси", "Менеджмент", "Технології виробництва", "Ветеринарна медицина"
     ]
-    return render_template("admin.html", videos=videos, faculties=faculties, idle_videos=idle_videos)
+    return render_template("admin.html", user=session.get("user"), videos=videos, faculties=faculties, idle_videos=idle_videos)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
+
+@app.route("/api/check_session")
+def check_session():
+    if 'user' in session:
+        return jsonify({
+            'valid': True,
+            'user': {
+                'username': session['user']['username'],
+                'role': session['user']['role']
+            }
+        })
+    return jsonify({'valid': False})
 
 @app.route("/admin/add", methods=["POST"])
 def admin_add():
@@ -269,7 +360,12 @@ def admin_toggle_idle_video():
 
 @app.route("/admin/idle/delete", methods=["POST"])
 def admin_delete_idle_video():
-    video_id = request.form["video_id"]
+    if request.is_json:
+        video_id = request.json.get("video_id")
+    else:
+        video_id = request.form.get("video_id")
+    if not video_id:
+        return jsonify({"error": "video_id is required"}), 400
     database.delete_idle_video(video_id)
     return jsonify({"success": True})
 
@@ -304,5 +400,7 @@ def api_idle_video():
     return jsonify({"yt_id": None}), 404
 
 if __name__ == "__main__":
-    database.init_db()
+    database.init_users_db() # Запускаємо базу даних для користувачів
+    database.init_videos_db() # Запускаємо базу даних для відео
+    
     app.run(debug=True)

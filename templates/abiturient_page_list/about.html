@@ -271,6 +271,69 @@
             background: linear-gradient(to right, var(--accent), var(--card-bg));
             margin: 30px 0;
         }
+
+@media (min-width: 1600px) {
+            body,
+            .main-content,
+            .main-content h2,
+            .main-content h3,
+            .main-content p,
+            .main-content li,
+            .main-content a,
+            .main-content ol,
+            .main-content ul {
+                font-size: 28px !important;
+            }
+
+            .header p {
+                font-size: 28px !important;
+            }
+
+            .main-content h1 {
+                font-size: 64px !important;
+            }
+
+            .main-content h2 {
+                font-size: 48px !important;
+            }
+
+            .main-content h4 {
+                font-size: 28px !important;
+            }
+
+            .specialties-list {
+                margin-bottom: 100px;
+            }
+
+            .footer-logo {
+                font-size: 18px !important;
+            }
+
+            .back-btn {
+            top: 48px;
+            left: 48px;
+            font-size: 1.25em;
+            padding: 16px 40px;
+            border-radius: 18px;
+            width: 250px;
+            } 
+
+            .footer-logo {
+                font-size: 18px !important;
+            }
+        }
+
+        .language-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 0.4em;
+        }
+
+        .language-header img {
+            width: 40px;
+        }
+
     </style>
 </head>
 <body>
@@ -282,15 +345,18 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-
+    <a href="{{ url_for('abiturient_page') }}" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"></path>
+            <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+        Назад
+    </a>
+    <div class="language-header">
+        <a href="{{ url_for('about_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+        <a href="{{ url_for('en_about_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    </div>
     <div class="container">
-        <a href="{{ url_for('abiturient_page') }}" class="back-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5"></path>
-                <path d="M12 19l-7-7 7-7"></path>
-            </svg>
-            Назад
-        </a>
         <div class="header">
             <h1>Абітурієнтам</h1>
             <p>Вся необхідна інформація для вступу</p>

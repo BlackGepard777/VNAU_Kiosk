@@ -9,6 +9,16 @@ body {
     line-height: 1.6;
 }
 
+.auth-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logout {
+    list-style: none;
+}
+
 .admin-container {
     max-width: 900px;
     margin: 0 auto;
