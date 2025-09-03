@@ -3,11 +3,11 @@ import database
 from bs4 import BeautifulSoup
 import requests
 from urllib.parse import urljoin, unquote
-import bcrypt
+from dotenv import load_dotenv
 import os
 
 app = Flask(__name__) 
-app.secret_key = os.environ.get("SECRET_KEY")
+load_dotenv() 
 USERS_DB = "users.db"
 
 
@@ -387,9 +387,6 @@ def get_video_info():
         })
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
-    
-    # ... (весь ваш існуючий код)
-
 
 @app.route("/api/idle_video")
 def api_idle_video():
@@ -399,8 +396,10 @@ def api_idle_video():
         return jsonify({"yt_id": yt_id})
     return jsonify({"yt_id": None}), 404
 
+app.secret_key = os.getenv("SECRET_KEY")
+
 if __name__ == "__main__":
-    database.init_users_db() # Запускаємо базу даних для користувачів
-    database.init_videos_db() # Запускаємо базу даних для відео
+    database.init_users_db() 
+    database.init_videos_db() 
     
     app.run(debug=True)
