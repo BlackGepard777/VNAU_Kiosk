@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Розклад університету</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/schedule.css">
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
             display: flex;
@@ -19,20 +21,24 @@
         }
     </style>
 </head>
+
 <body>
     <div class="bg-particles" id="particles"></div>
-    <a href="{{ url_for('home') }}" class="back-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.707 11.293l-4.5-4.5a1 1 0 011.414-1.414l5.207 5.207a1 1 0 010 1.414l-5.207 5.207a1 1 0 01-1.414-1.414l4.5-4.5z" transform="rotate(-90 12 12)"/>
-            </svg>
-            Назад
-    </a>
-    <div class="language-header">
-        <a href="{{ url_for('schedule_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_schedule_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    <div class="header-leanguage-btn">
+        <a href="{{ url_for('home') }}" class="back-btn">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.707 11.293l-4.5-4.5a1 1 0 011.414-1.414l5.207 5.207a1 1 0 010 1.414l-5.207 5.207a1 1 0 01-1.414-1.414l4.5-4.5z" transform="rotate(-90 12 12)"/>
+                </svg> -->
+            <p><i class="fa-solid fa-left-long"></i>Назад</p>
+        </a>
+        <div class="language-header">
+            <a href="{{ url_for('schedule_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+            <a href="{{ url_for('en_schedule_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        </div>
     </div>
     <div class="schedule-container">
-        <div class="header"><h1>Розклад університету</h1>
+        <div class="header">
+            <h1>Розклад університету</h1>
         </div>
         <div class="controls-container">
             <div class="control-group">
@@ -61,21 +67,22 @@
     <script src="/static/js/schedule.js"></script>
     <script src="/static/js/idle_mode.js"></script>
     <script>
-  function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
 
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      particle.style.animationDelay = Math.random() * 2 + 's';
-      particlesContainer.appendChild(particle);
-    }
-  }
-  window.addEventListener('load', createParticles);
-</script>
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        window.addEventListener('load', createParticles);
+    </script>
 </body>
+
 </html>

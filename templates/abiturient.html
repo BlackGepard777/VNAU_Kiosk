@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Абітурієнтам</title>
     <link rel="stylesheet" href="/static/css/abiturient.css">
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
             display: flex;
@@ -18,12 +20,15 @@
         }
     </style>
 </head>
+
 <body>
-    <a href="/" class="back-btn">⬅ Назад</a>
-    <div class="language-header">
+    <div class="header-leanguage-abiturient">
+        <a href="/" class="back-btn"><p><i class="fa-solid fa-left-long"></i>Назад</p></a>
+        <div class="language-header">
             <a href="{{ url_for('abiturient_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
             <a href="{{ url_for('en_abiturient_page') }}"><img src="/static/images/usa.png" alt=""></a>
         </div>
+    </div>
     <div class="header-abit">
         <h1>Абітурієнтам</h1>
         <p class="subtitle">Вся необхідна інформація для вступу</p>
@@ -70,9 +75,7 @@
             <p>Історія, місія, цінності ВНАУ</p>
         </a>
     </div>
-    <footer>
-        © 2025 ВНАУ. Інформація на сайті може оновлюватися. Актуальні дані уточнюйте у Приймальної комісії.
-    </footer>
     <script src="/static/js/idle_mode.js"></script>
 </body>
+
 </html>
