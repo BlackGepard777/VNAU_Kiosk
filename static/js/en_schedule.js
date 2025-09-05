@@ -17,12 +17,12 @@ const facultySelect = document.getElementById("facultySelect");
     }
 
     async function loadCourses(facultyId) {
-      courseSelect.innerHTML = '<option value="">Завантаження курсів...</option>';
-      groupSelect.innerHTML = '<option>Виберіть курс</option>';
+      courseSelect.innerHTML = '<option value="">Loading courses...</option>';
+      groupSelect.innerHTML = '<option>Select a course</option>';
       const res = await fetch(`https://mkr.sergkh.com/structures/0/faculties/${facultyId}/courses`);
       const courses = await res.json();
 
-      courseSelect.innerHTML = '<option value="">Виберіть курс</option>';
+      courseSelect.innerHTML = '<option value="">Select a course</option>';
       courses.forEach(c => {
         const option = document.createElement("option");
         option.value = c.id;
@@ -32,11 +32,11 @@ const facultySelect = document.getElementById("facultySelect");
     }
 
     async function loadGroups(facultyId, courseId) {
-      groupSelect.innerHTML = '<option value="">Завантаження груп...</option>';
+      groupSelect.innerHTML = '<option value="">Loading a groups...</option>';
       const res = await fetch(`https://mkr.sergkh.com/structures/0/faculties/${facultyId}/courses/${courseId}/groups`);
       const groups = await res.json();
 
-      groupSelect.innerHTML = '<option value="">Виберіть групу</option>';
+      groupSelect.innerHTML = '<option value="">Select a group</option>';
       groups.forEach(g => {
         const option = document.createElement("option");
         option.value = g.id;
@@ -46,7 +46,7 @@ const facultySelect = document.getElementById("facultySelect");
     }
 
     async function loadSchedule(groupId) {
-    scheduleContainer.innerHTML = "Завантаження...";
+    scheduleContainer.innerHTML = "Loading...";
     try {
         const res = await fetch(`https://mkr.sergkh.com/structures/0/faculties/0/courses/0/groups/${groupId}/schedule`);
         const data = await res.json();
@@ -64,7 +64,7 @@ const facultySelect = document.getElementById("facultySelect");
             dayDiv.className = "day";
 
             const h2 = document.createElement("h2");
-            h2.textContent = `Розклад на ${date}`;
+            h2.textContent = `Schedule for ${date}`;
             dayDiv.appendChild(h2);
 
             lessons.forEach(item => {
