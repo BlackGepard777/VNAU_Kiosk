@@ -41,11 +41,16 @@ def video_page():
     faculty = request.args.get("faculty")
     return render_template("video.html", faculty=faculty)
 
+@app.route("/en_video")
+def en_video_page():
+    faculty = request.args.get("faculty")
+    return render_template("English_version/en_video.html", faculty=faculty)
+
 @app.route("/api/videos")
 def api_videos():
     page = int(request.args.get("page", 1))
     faculty = request.args.get("faculty")
-    per_page = 5
+    per_page = 6
     offset = (page - 1) * per_page
 
     videos = database.get_videos(faculty=faculty, limit=per_page, offset=offset)
@@ -317,10 +322,17 @@ def check_session():
 @app.route("/admin/add", methods=["POST"])
 def admin_add():
     yt_id = request.form["yt_id"]
-    title = request.form["title"]
-    description = request.form["description"]
     faculty = request.form["faculty"]
-    database.add_video(yt_id, title, description, faculty)
+
+    if not database.video_exists(yt_id):
+        video_info = get_video_info_from_youtube(yt_id)
+        if video_info:
+            database.add_video(
+                yt_id,
+                video_info["title"],
+                video_info["description"],
+                faculty
+            )
     return redirect(url_for("admin_page"))
 
 @app.route("/admin/update/<int:video_id>", methods=["POST"])
@@ -353,7 +365,6 @@ def admin_toggle_idle_video():
     if video_id is None or is_active is None:
         return jsonify({"error": "Missing video_id or is_active"}), 400
 
-    # Оновлюємо статус в базі даних
     database.toggle_idle_video_status(video_id, is_active)
 
     return jsonify({"success": True})
@@ -387,6 +398,22 @@ def get_video_info():
         })
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
+    
+def get_video_info_from_youtube(yt_id):
+    """Отримує title і description відео з YouTube."""
+    url = f"https://www.youtube.com/watch?v={yt_id}"
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.text, 'html.parser')
+        title_tag = soup.find("meta", property="og:title")
+        description_tag = soup.find("meta", property="og:description")
+        return {
+            "title": title_tag["content"] if title_tag else "Без назви",
+            "description": description_tag["content"] if description_tag else "Без опису"
+        }
+    except requests.exceptions.RequestException:
+        return None
 
 @app.route("/api/idle_video")
 def api_idle_video():

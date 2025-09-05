@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Gallery</title>
+    <link rel="stylesheet" href="/static/css/video.css">
+    <script src="/static/js/video.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Video Gallery</h1>
+        <a href="/en_faculties" class="back-btn">⬅ Back</a>
+    </header>
+    <div id="video-container" class="video-grid" data-faculty="{{ faculty }}"></div>
+    <div id="pagination" class="pagination-controls">
+        <button id="prev" class="pagination-btn">Previous</button>
+        <span id="page-info"></span>
+        <button id="next" class="pagination-btn">Next</button>
+    </div>
+    <script src="/static/js/idle_mode.js"></script>
+</body>
+</html>
