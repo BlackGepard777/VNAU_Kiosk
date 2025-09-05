@@ -48,6 +48,23 @@ def init_videos_db():
     conn.commit()
     conn.close()
 
+def video_exists(yt_id):
+    """
+    Перевіряє, чи існує відео з таким yt_id в базі даних.
+    """
+    try:
+        conn = sqlite3.connect(DB_NAME)
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1 FROM videos WHERE yt_id = ?", (yt_id,))
+        exists = cursor.fetchone() is not None
+        return exists
+    except sqlite3.Error as e:
+        print(f"Помилка бази даних: {e}")
+        return False
+    finally:
+        if conn:
+            conn.close()
+
 def hash_password(password):
     salt = bcrypt.gensalt()
     return bcrypt.hashpw(password.encode('utf-8'), salt).decode('utf-8')
