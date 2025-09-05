@@ -6,6 +6,7 @@
     <title>University Schedule</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/schedule.css">
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
             display: flex;
@@ -21,15 +22,14 @@
 </head>
 <body>
     <div class="bg-particles" id="particles"></div>
-    <a href="{{ url_for('en_home') }}" class="back-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.707 11.293l-4.5-4.5a1 1 0 011.414-1.414l5.207 5.207a1 1 0 010 1.414l-5.207 5.207a1 1 0 01-1.414-1.414l4.5-4.5z" transform="rotate(-90 12 12)"/>
-        </svg>
-        Back
-    </a>
-    <div class="language-header">
-        <a href="{{ url_for('schedule_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_schedule_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    <div class="header-leanguage-btn">
+        <a href="{{ url_for('en_home') }}" class="back-btn">
+            <p><i class="fa-solid fa-left-long"></i>Back</p>
+        </a>
+        <div class="language-header">
+            <a href="{{ url_for('schedule_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+            <a href="{{ url_for('en_schedule_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        </div>
     </div>
     <div class="schedule-container">
         <div class="header"><h1>University Schedule</h1>
@@ -38,19 +38,19 @@
             <div class="control-group">
                 <label for="facultySelect">Faculty:</label>
                 <select id="facultySelect">
-                    <option>Loading...</option>
+                    <option>Select a faculty</option>
                 </select>
             </div>
             <div class="control-group">
                 <label for="courseSelect">Course:</label>
                 <select id="courseSelect">
-                    <option>Select a faculty</option>
+                    <option>Select a course</option>
                 </select>
             </div>
             <div class="control-group">
                 <label for="groupSelect">Group:</label>
                 <select id="groupSelect">
-                    <option>Select a course</option>
+                    <option>Select a group</option>
                 </select>
             </div>
         </div>
@@ -58,7 +58,7 @@
             <p class="placeholder-text">The schedule will appear here...</p>
         </div>
     </div>
-    <script src="/static/js/schedule.js"></script>
+    <script src="/static/js/en_schedule.js"></script>
     <script src="/static/js/idle_mode.js"></script>
     <script>
   function createParticles() {
