@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg: linear-gradient(135deg, #1C2B29 0%, #2A3C38 100%);
@@ -60,10 +62,12 @@
         }
 
         @keyframes float {
+
             0%,
             100% {
                 transform: translateY(0px) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(180deg);
             }
@@ -88,6 +92,13 @@
             overflow: hidden;
         }
 
+        .header-main-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+        }
+
         .header::before {
             content: '';
             position: absolute;
@@ -103,6 +114,7 @@
             0% {
                 transform: translateX(-100%) translateY(-100%) rotate(30deg);
             }
+
             100% {
                 transform: translateX(100%) translateY(100%) rotate(30deg);
             }
@@ -129,9 +141,6 @@
         }
 
         .back-btn {
-            position: absolute;
-            top: 28px;
-            left: 28px;
             text-decoration: none;
             color: var(--accent);
             font-weight: 700;
@@ -139,12 +148,11 @@
             align-items: center;
             gap: 7px;
             background: rgba(33, 51, 47, 0.7);
-            padding: 10px 22px;
+            padding: 1em 2em;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(94, 217, 107, 0.08);
             border: 1px solid var(--border);
             transition: background 0.2s, color 0.2s, transform 0.2s;
-            z-index: 2;
         }
 
         .back-btn svg {
@@ -170,7 +178,7 @@
             position: relative;
             text-align: center;
         }
-        
+
         .info-section {
             margin-bottom: 30px;
         }
@@ -188,7 +196,7 @@
             padding: 0;
             margin: 0;
         }
-        
+
         .info-list li {
             margin-bottom: 10px;
             padding-left: 20px;
@@ -242,7 +250,7 @@
             margin-top: 10px;
             display: block;
         }
-        
+
         .program-section {
             margin-bottom: 40px;
         }
@@ -266,12 +274,12 @@
             color: var(--text-light);
             margin-bottom: 5px;
         }
-        
+
         .program-section ul li::before {
             content: '- ';
             color: var(--accent);
         }
-        
+
         .footer {
             text-align: center;
             color: rgba(255, 255, 255, 0.8);
@@ -290,7 +298,7 @@
             color: var(--text-light);
             text-align: center;
         }
-        
+
         .competitions-list {
             list-style: none;
             padding: 0;
@@ -306,6 +314,7 @@
             color: var(--text);
             margin-bottom: 5px;
         }
+
         .competitions-list p {
             font-size: 1rem;
             line-height: 1.5;
@@ -313,6 +322,7 @@
         }
 
         @media (min-width: 1600px) {
+
             body,
             .main-content,
             .main-content h2,
@@ -350,13 +360,12 @@
             }
 
             .back-btn {
-            top: 48px;
-            left: 48px;
-            font-size: 1.25em;
-            padding: 16px 40px;
-            border-radius: 18px;
-            width: 250px;
-            } 
+                gap: 0.5em;
+                font-size: 1.25em;
+                padding: 1em 2em;
+                border-radius: 18px;
+
+            }
 
             .footer-logo {
                 font-size: 18px !important;
@@ -375,6 +384,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="bg-particles">
@@ -384,16 +394,20 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-    <a href="{{ url_for('abiturient_page') }}" class="back-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <div class="header-main-btn">
+        <a href="{{ url_for('abiturient_page') }}" class="back-btn">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M19 12H5"></path>
                 <path d="M12 19l-7-7 7-7"></path>
-            </svg>
-            Назад
+            </svg> -->
+            <p><i class="fa-solid fa-left-long"></i> Назад</p>
         </a>
-    <div class="language-header">
-        <a href="{{ url_for('admission_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_admission_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        <div class="language-header">
+            <a href="{{ url_for('admission_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+            <a href="{{ url_for('en_admission_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        </div>
     </div>
     <div class="container">
         <div class="header">
@@ -408,7 +422,8 @@
                 <h3>Ступінь бакалавра</h3>
                 <ul class="info-list">
                     <li>Реєстрація електронних кабінетів розпочинається з 01 липня 2025 року.</li>
-                    <li>Реєстрація заяв на участь у співбесідах для пільгових категорій проводиться з 03 липня по 10 липня 2025 року.</li>
+                    <li>Реєстрація заяв на участь у співбесідах для пільгових категорій проводиться з 03 липня по 10
+                        липня 2025 року.</li>
                     <li>Реєстрація електронних заяв розпочинається з 19 липня та завершується 01 серпня 2025 року.</li>
                 </ul>
             </div>
@@ -417,8 +432,10 @@
                 <h3>Ступінь магістра</h3>
                 <ul class="info-list">
                     <li>Реєстрація електронних кабінетів з 01 липня 2025 року.</li>
-                    <li>Реєстрація заяв на фахове вступне випробування розпочинається з 01 липня та завершується 29 липня 2025 року.</li>
-                    <li>Реєстрація електронних заяв на конкурсний відбір розпочинається з 08 серпня та завершується 25 серпня 2025 року.</li>
+                    <li>Реєстрація заяв на фахове вступне випробування розпочинається з 01 липня та завершується 29
+                        липня 2025 року.</li>
+                    <li>Реєстрація електронних заяв на конкурсний відбір розпочинається з 08 серпня та завершується 25
+                        серпня 2025 року.</li>
                 </ul>
             </div>
 
@@ -452,19 +469,25 @@
                 <li class="note">* - тільки денна форма навчання</li>
             </ul>
 
-            <h2 class="section-title">Конкурсні предмети (НМТ 2025 р., 2024 р., 2023 р., 2022 р.) та мотиваційний лист</h2>
+            <h2 class="section-title">Конкурсні предмети (НМТ 2025 р., 2024 р., 2023 р., 2022 р.) та мотиваційний лист
+            </h2>
             <ul class="competitions-list">
                 <li>
                     <h4>Національний мультипредметний тест 2025 р.</h4>
-                    <p>(українська мова, математика, історія України — основний блок; четвертий предмет на вибір — іноземна мова, або біологія, або українська література, або фізика, або хімія, або географія)</p>
+                    <p>(українська мова, математика, історія України — основний блок; четвертий предмет на вибір —
+                        іноземна мова, або біологія, або українська література, або фізика, або хімія, або географія)
+                    </p>
                 </li>
                 <li>
                     <h4>Національний мультипредметний тест 2024 р.</h4>
-                    <p>(українська мова, математика, історія України — основний блок; четвертий предмет на вибір — іноземна мова, або біологія, або українська література, або фізика, або хімія, або географія).</p>
+                    <p>(українська мова, математика, історія України — основний блок; четвертий предмет на вибір —
+                        іноземна мова, або біологія, або українська література, або фізика, або хімія, або географія).
+                    </p>
                 </li>
                 <li>
                     <h4>Національний мультипредметний тест 2023 р.</h4>
-                    <p>(українська мова, математика — основний блок; третій предмет на вибір — історія України, або іноземна мова, або біологія, або фізика, або хімія).</p>
+                    <p>(українська мова, математика — основний блок; третій предмет на вибір — історія України, або
+                        іноземна мова, або біологія, або фізика, або хімія).</p>
                 </li>
                 <li>
                     <h4>Національний мультипредметний тест 2022 р.</h4>
@@ -481,4 +504,5 @@
     </div>
 
 </body>
+
 </html>
