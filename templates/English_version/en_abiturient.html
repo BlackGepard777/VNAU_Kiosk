@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Applicants</title>
     <link rel="stylesheet" href="/static/css/abiturient.css">
+    
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
             display: flex;
@@ -19,10 +21,12 @@
     </style>
 </head>
 <body>
-    <a href="{{ url_for('en_home') }}" class="back-btn">⬅ Back</a>
-    <div class="language-header">
-        <a href="{{ url_for('abiturient_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_abiturient_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    <div class="header-leanguage-abiturient">
+        <a href="{{url_for('en_home')}}" class="back-btn"><p><i class="fa-solid fa-left-long"></i> Back</p></a>
+        <div class="language-header">
+            <a href="{{ url_for('abiturient_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+            <a href="{{ url_for('en_abiturient_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        </div>
     </div>
     <div class="header-abit">
         <h1>For Applicants</h1>
@@ -70,9 +74,6 @@
             <p>History, mission, and values of VNAU</p>
         </a>
     </div>
-    <footer>
-        © 2025 VNAU. Information on the site may be updated. For current data, please contact the Admissions Committee.
-    </footer>
     <script src="/static/js/idle_mode.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg: linear-gradient(135deg, #1C2B29 0%, #2A3C38 100%);
@@ -60,10 +62,12 @@
         }
 
         @keyframes float {
+
             0%,
             100% {
                 transform: translateY(0px) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(180deg);
             }
@@ -88,6 +92,13 @@
             overflow: hidden;
         }
 
+        .header-main-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+        }
+
         .header::before {
             content: '';
             position: absolute;
@@ -103,6 +114,7 @@
             0% {
                 transform: translateX(-100%) translateY(-100%) rotate(30deg);
             }
+
             100% {
                 transform: translateX(100%) translateY(100%) rotate(30deg);
             }
@@ -129,24 +141,20 @@
         }
 
         .back-btn {
-            position: absolute;
-            width: 150px;
-            top: 32px;
-            left: 18px;
+     
             font-size: 1.1em;
             color: var(--accent);
-            background: rgba(33,51,47,0.85);
-            padding: 10px 28px;
+            background: rgba(33, 51, 47, 0.85);
+            padding: 1em 2em;
             border-radius: 14px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 4px 16px rgba(94,217,107,0.10);
+            box-shadow: 0 4px 16px rgba(94, 217, 107, 0.10);
             border: 1px solid var(--border);
             transition: background 0.2s, color 0.2s, transform 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            z-index: 10;
         }
 
         .back-btn svg {
@@ -174,7 +182,7 @@
             text-align: center;
         }
 
-        /* .section-title::after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -184,34 +192,15 @@
             height: 3px;
             background: var(--accent);
             border-radius: 2px;
-        } */
+        } 
 
-        .program-list {
-            list-style: none;
-            padding: 0;
+       .program-list {
+            list-style-type: none; 
+            padding-left: 0;
         }
 
-        .program-list li {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .program-list li::before {
-            content: attr(data-number);
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 20px;
-            text-align: right;
-            padding-right: 5px;
-        }
-
-        .program-list .accredited-section, .program-list .unaccredited-section {
+        .program-list .accredited-section,
+        .program-list .unaccredited-section {
             margin-top: 30px;
             margin-bottom: 15px;
             font-size: 1.2rem;
@@ -221,29 +210,34 @@
         }
 
         .program-list .unaccredited-section {
-            color: #d95e6b; /* A subtle red for contrast */
+            color: #d95e6b; 
         }
-        
-        .accredited-list, .unaccredited-list {
-            list-style-type: none;
-            padding: 0;
+
+        .accredited-list,
+        .unaccredited-list {
+            list-style-type: disc; 
+            padding-left: 20px;    
+            margin: 0;
         }
-        
-        .accredited-list li, .unaccredited-list li {
-            padding-left: 20px;
-            margin-bottom: 8px;
-            position: relative;
+
+        .accredited-list li,
+        .unaccredited-list li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 10px;
         }
-        .accredited-list li::before, .unaccredited-list li::before {
-            content: counter(item);
-            counter-increment: item;
+
+        .accredited-list li::marker {
             color: var(--accent);
+            font-size: 1.2rem;
             font-weight: bold;
-            position: absolute;
-            left: 0;
         }
-        .unaccredited-list li::before {
+
+        .unaccredited-list li::marker {
             color: #d95e6b;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
         .footer {
@@ -266,6 +260,7 @@
         }
 
         @media (min-width: 1600px) {
+
             body,
             .main-content,
             .main-content h2,
@@ -303,13 +298,10 @@
             }
 
             .back-btn {
-            top: 48px;
-            left: 48px;
-            font-size: 1.25em;
-            padding: 16px 40px;
-            border-radius: 18px;
-            width: 250px;
-            } 
+                font-size: 1.25em;
+                padding: 1em 2em;
+                border-radius: 18px;
+            }
 
             .footer-logo {
                 font-size: 18px !important;
@@ -328,6 +320,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="bg-particles">
@@ -337,17 +330,16 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-    <a href="{{ url_for('en_abiturient_page') }}" class="back-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5"></path>
-            <path d="M12 19l-7-7 7-7"></path>
-        </svg>
-        Back
-    </a>
-    <div class="language-header">
-        <a href="{{ url_for('specialities_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_specialities_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    <div class="header-main-btn">
+        <a href="{{ url_for('abiturient_page') }}" class="back-btn">
+           <p><i class="fa-solid fa-left-long"></i> Back</p>
+        </a>
+        <div class="language-header">
+            <a href="{{ url_for('specialities_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+            <a href="{{ url_for('en_specialities_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        </div>
     </div>
+
     <div class="container">
         <div class="header">
             <h1>For Applicants</h1>
@@ -355,94 +347,95 @@
         </div>
 
         <div class="main-content">
-            <h2 class="section-title">List of Educational Programs at the Bachelor's Level of Higher Education</h2>
+            <h2 class="section-title">List of Bachelor's Degree Programs</h2>
             <div class="program-list">
                 <div class="accredited-section">ACCREDITED:</div>
-                <ol class="accredited-list">
+                <ul class="accredited-list">
                     <li>Economics</li>
                     <li>Finance, Banking and Insurance</li>
                     <li>Accounting and Taxation</li>
                     <li>Management</li>
                     <li>Law</li>
                     <li>Ecology</li>
-                    <li>Branch Machine Building</li>
-                    <li>Electric Power Engineering, Electrical Engineering and Electromechanics</li>
+                    <li>Industrial Engineering</li>
+                    <li>Electrical Power, Electrical Engineering and Electromechanics</li>
                     <li>Food Technologies</li>
                     <li>Agronomy</li>
                     <li>Horticulture and Viticulture</li>
-                    <li>Technology of Production and Processing of Livestock Products</li>
+                    <li>Technology of Animal Products Production and Processing</li>
                     <li>Forestry</li>
-                    <li>Horticultural and Park Management</li>
+                    <li>Landscape Gardening</li>
                     <li>Agroengineering</li>
                     <li>Hotel and Restaurant Business</li>
                     <li>Tourism</li>
-                    <li>Public Administration and Management</li>
+                    <li>Public Administration</li>
                     <li>Plant Protection and Quarantine</li>
                     <li>Entrepreneurship, Trade and Exchange Activities</li>
                     <li>Marketing</li>
                     <li>Computer Science</li>
-                </ol>
+                </ul>
                 <div class="unaccredited-section">NOT ACCREDITED:</div>
-                <ol class="unaccredited-list" start="23">
+                <ul class="unaccredited-list">
                     <li>Technological Expertise, Safety and Quality of Food Products</li>
                     <li>Geoinformation Technologies in Agroengineering</li>
-                </ol>
+                </ul>
             </div>
 
-            <h2 class="section-title">List of Educational Programs at the Master's Level of Higher Education</h2>
+            <h2 class="section-title">List of Master's Degree Programs</h2>
             <div class="program-list">
                 <div class="accredited-section">ACCREDITED:</div>
-                <ol class="accredited-list">
+                <ul class="accredited-list">
                     <li>Economics</li>
                     <li>Finance, Banking and Insurance</li>
                     <li>Accounting and Taxation</li>
                     <li>Management</li>
                     <li>Law</li>
                     <li>Ecology</li>
-                    <li>Branch Machine Building</li>
-                    <li>Electric Power Engineering, Electrical Engineering and Electromechanics</li>
+                    <li>Industrial Engineering</li>
+                    <li>Electrical Power, Electrical Engineering and Electromechanics</li>
                     <li>Food Technologies</li>
                     <li>Agronomy</li>
-                    <li>Technology of Production and Processing of Livestock Products</li>
-                    <li>Horticultural and Park Management</li>
+                    <li>Technology of Animal Products Production and Processing</li>
+                    <li>Landscape Gardening</li>
                     <li>Agroengineering</li>
                     <li>Hotel and Restaurant Business</li>
                     <li>Tourism</li>
-                    <li>Public Administration and Management</li>
+                    <li>Public Administration</li>
                     <li>Veterinary Hygiene, Sanitation and Expertise</li>
-                </ol>
+                </ul>
                 <div class="unaccredited-section">NOT ACCREDITED:</div>
-                <ol class="unaccredited-list" start="18">
+                <ul class="unaccredited-list">
                     <li>Veterinary Medicine</li>
                     <li>Forestry</li>
-                </ol>
+                </ul>
             </div>
 
-            <h2 class="section-title">List of Educational Programs at the Educational and Scientific Level of Higher Education</h2>
+            <h2 class="section-title">List of Doctoral Degree Programs</h2>
             <div class="program-list">
                 <div class="accredited-section">ACCREDITED:</div>
-                <ol class="accredited-list">
+                <ul class="accredited-list">
                     <li>Economics</li>
                     <li>Materials Science</li>
-                    <li>Branch Machine Building</li>
+                    <li>Industrial Engineering</li>
                     <li>Agronomy</li>
-                    <li>Technology of Production and Processing of Livestock Products</li>
+                    <li>Technology of Animal Products Production and Processing</li>
                     <li>Accounting and Taxation</li>
-                </ol>
+                </ul>
                 <div class="unaccredited-section">NOT ACCREDITED:</div>
-                <ol class="unaccredited-list" start="7">
+                <ul class="unaccredited-list">
                     <li>Food Technologies</li>
                     <li>Veterinary Hygiene, Sanitation and Expertise</li>
-                </ol>
+                </ul>
             </div>
         </div>
 
         <footer class="footer">
             <div class="footer-logo">
-                © 2025 VNAU. Information on the site may be updated. For current data, please contact the Admissions Committee.
+                © 2025 VNAU. The information on the website may be updated. Please check the Admission Committee for current data.
             </div>
         </footer>
     </div>
 
 </body>
+
 </html>

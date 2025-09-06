@@ -182,42 +182,9 @@
             text-align: center;
         }
 
-        /* .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--accent);
-            border-radius: 2px;
-        } */
-
         .program-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .program-list li {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .program-list li::before {
-            content: attr(data-number);
-            color: var(--accent);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 20px;
-            text-align: right;
-            padding-right: 5px;
+            list-style-type: none; 
+            padding-left: 0;
         }
 
         .program-list .accredited-section,
@@ -231,35 +198,34 @@
         }
 
         .program-list .unaccredited-section {
-            color: #d95e6b;
-            /* A subtle red for contrast */
+            color: #d95e6b; 
         }
 
         .accredited-list,
         .unaccredited-list {
-            list-style-type: none;
-            padding: 0;
+            list-style-type: disc; 
+            padding-left: 20px;    
+            margin: 0;
         }
 
         .accredited-list li,
         .unaccredited-list li {
-            padding-left: 20px;
-            margin-bottom: 8px;
-            position: relative;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 10px;
         }
 
-        .accredited-list li::before,
-        .unaccredited-list li::before {
-            content: counter(item);
-            counter-increment: item;
+        .accredited-list li::marker {
             color: var(--accent);
+            font-size: 1.2rem;
             font-weight: bold;
-            position: absolute;
-            left: 0;
         }
 
-        .unaccredited-list li::before {
+        .unaccredited-list li::marker {
             color: #d95e6b;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
         .footer {
@@ -354,11 +320,6 @@
     </div>
     <div class="header-main-btn">
         <a href="{{ url_for('abiturient_page') }}" class="back-btn">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 12H5"></path>
-                <path d="M12 19l-7-7 7-7"></path>
-            </svg> -->
            <p><i class="fa-solid fa-left-long"></i> Назад</p>
         </a>
         <div class="language-header">

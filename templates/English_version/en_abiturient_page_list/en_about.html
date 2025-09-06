@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --bg: linear-gradient(135deg, #1C2B29 0%, #2A3C38 100%);
@@ -88,6 +89,13 @@
             overflow: hidden;
         }
 
+        .header-main-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em;
+        }
+
         .header::before {
             content: '';
             position: absolute;
@@ -129,22 +137,19 @@
         }
 
         .back-btn {
-            position: absolute;
-            top: 28px;
-            left: 28px;
-            text-decoration: none;
+            font-size: 1.1em;
             color: var(--accent);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            background: rgba(33, 51, 47, 0.7);
-            padding: 10px 22px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(94, 217, 107, 0.08);
+            background: rgba(33, 51, 47, 0.85);
+            padding: 1em 2em;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(94, 217, 107, 0.10);
             border: 1px solid var(--border);
             transition: background 0.2s, color 0.2s, transform 0.2s;
-            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .back-btn svg {
@@ -310,13 +315,10 @@
             }
 
             .back-btn {
-            top: 48px;
-            left: 48px;
-            font-size: 1.25em;
-            padding: 16px 40px;
-            border-radius: 18px;
-            width: 250px;
-            } 
+                font-size: 1.25em;
+                padding: 1em 2em;
+                border-radius: 18px;
+            }
 
             .footer-logo {
                 font-size: 18px !important;
@@ -345,16 +347,14 @@
         <div class="particle" style="top: 75%; left: 60%; animation-duration: 15s;"></div>
         <div class="particle" style="top: 90%; left: 80%; animation-duration: 7s;"></div>
     </div>
-    <a href="{{ url_for('en_abiturient_page') }}" class="back-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5"></path>
-            <path d="M12 19l-7-7 7-7"></path>
-        </svg>
-        Back
-    </a>
-    <div class="language-header">
-        <a href="{{ url_for('about_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-        <a href="{{ url_for('en_about_page') }}"><img src="/static/images/usa.png" alt=""></a>
+    <div class="header-main-btn">
+        <a href="{{ url_for('en_abiturient_page') }}" class="back-btn">
+           <p><i class="fa-solid fa-left-long"></i> Назад</p> 
+        </a>
+        <div class="language-header">
+            <a href="{{ url_for('about_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
+            <a href="{{ url_for('en_about_page') }}"><img src="/static/images/usa.png" alt=""></a>
+        </div>
     </div>
     <div class="container">
         <div class="header">
