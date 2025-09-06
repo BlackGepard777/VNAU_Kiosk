@@ -49,3 +49,6 @@ git clone https://github.com/BlackGepard777/VNAU_Kiosk
 
 3. Встановлення залежностей:
  pip install -r requirements.txt
+
+4. Запуск:
+ python app.py (python3 app.py - Mac)
