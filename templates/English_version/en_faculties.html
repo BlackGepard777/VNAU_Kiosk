@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Faculties</title>
     <link rel="stylesheet" href="/static/css/facultets.css">
+    <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
             display: flex;
@@ -23,10 +24,7 @@
     <div class="container">
         <div class="header-container">
             <a href="{{ url_for('en_home') }}" class="back-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.707 11.293l-4.5-4.5a1 1 0 011.414-1.414l5.207 5.207a1 1 0 010 1.414l-5.207 5.207a1 1 0 01-1.414-1.414l4.5-4.5z" transform="rotate(-90 12 12)"/>
-                </svg>
-                Back
+                <p><i class="fa-solid fa-left-long"></i> Back</p>
             </a>
             <div class="language-header">
                 <a href="{{ url_for('faculties_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
