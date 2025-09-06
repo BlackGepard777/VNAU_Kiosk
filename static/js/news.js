@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.innerHTML = `
                     ${item.image ? `<img src="${item.image}" alt="${item.title}" style="max-width:200px; display:block; margin-bottom:10px;">` : ""}
                     <h3>${item.title}</h3>
+                    ${item.date ? `<p class="news-meta">📅 ${item.date} 👀 ${item.views}</p>` : ""}
                     <p>${item.content}</p>
                     <button class="btn btn-primary btn-sm" data-url="${item.link}" data-type="${type}">Читати далі &rarr;</button>
                 `;
@@ -52,42 +53,42 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAndRenderContent('/api/announcements', announcementsContainer, 'announcement');
 
     function loadItemDetail(url, type) {
-    let endpoint = '';
-    if (type === 'news') {
-        endpoint = `/api/news/detail?url=${encodeURIComponent(url)}`;
-    } else if (type === 'announcement') {
-        endpoint = `/api/announcements/detail?url=${encodeURIComponent(url)}`; 
-    } else {
-        console.error("Невідомий тип контенту");
-        return;
-    }
+        let endpoint = '';
+        if (type === 'news') {
+            endpoint = `/api/news/detail?url=${encodeURIComponent(url)}`;
+        } else if (type === 'announcement') {
+            endpoint = `/api/announcements/detail?url=${encodeURIComponent(url)}`; 
+        } else {
+            console.error("Невідомий тип контенту");
+            return;
+        }
 
-    fetch(endpoint)
-        .then(res => res.json())
-        .then(data => {
-            if (data.error) {
-                alert("Помилка: " + data.error);
-                return;
-            }
-            const modalLabel = document.getElementById('newsModalLabel');
-            const modalBody = document.getElementById('newsModalBody');
-            if (!modalLabel || !modalBody) {
-                console.error("Модалка не знайдена у DOM!");
-                return;
-            }
-            modalLabel.innerText = data.title;
-            modalBody.innerHTML = `
-                ${data.image ? `<img src="${data.image}" alt="${data.title}" class="img-fluid mb-3">` : ""}
-                <p>${data.content}</p>
-            `;
-            const modal = new bootstrap.Modal(document.getElementById('newsModal'));
-            modal.show();
-        })
-        .catch(err => {
-            console.error("Помилка завантаження детального контенту:", err);
-            alert("Не вдалося завантажити повний вміст.");
-        });
-}
+        fetch(endpoint)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    alert("Помилка: " + data.error);
+                    return;
+                }
+                const modalLabel = document.getElementById('newsModalLabel');
+                const modalBody = document.getElementById('newsModalBody');
+                if (!modalLabel || !modalBody) {
+                    console.error("Модалка не знайдена у DOM!");
+                    return;
+                }
+                modalLabel.innerText = data.title;
+                modalBody.innerHTML = `
+                    ${data.image ? `<img src="${data.image}" alt="${data.title}" class="img-fluid mb-3">` : ""}
+                    <p>${data.content}</p>
+                `;
+                const modal = new bootstrap.Modal(document.getElementById('newsModal'));
+                modal.show();
+            })
+            .catch(err => {
+                console.error("Помилка завантаження детального контенту:", err);
+                alert("Не вдалося завантажити повний вміст.");
+            });
+    }
 
     
 });

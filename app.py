@@ -5,6 +5,7 @@ import requests
 from urllib.parse import urljoin, unquote
 from dotenv import load_dotenv
 import os
+import re
 
 app = Flask(__name__) 
 load_dotenv() 
@@ -80,12 +81,30 @@ def get_news():
             title_link_element = container.find("a", href=True)
             content_element = container.find("p", class_="my-2")
             image_element = container.find("img")
-            if title_link_element and content_element:
+
+            date = None
+            views = None
+            cleaned_content = ""
+
+            if content_element:
+                content_text = content_element.get_text(strip=True)
+                match = re.search(r'(\d{2}\.\d{2}\.\d{4})(\d+)', content_text)
+                
+                if match:
+                    date = match.group(1)
+                    views = match.group(2)
+                    cleaned_content = re.sub(r'\d{2}\.\d{2}\.\d{4}\d+', '', content_text).strip()
+                else:
+                    cleaned_content = content_text
+            
+            if title_link_element:
                 news_articles.append({
                     "title": title_link_element.get_text(strip=True),
                     "link": urljoin(url, title_link_element["href"]),
-                    "content": content_element.get_text(strip=True),
-                    "image": urljoin(url, image_element["src"]) if image_element else None
+                    "content": cleaned_content,
+                    "image": urljoin(url, image_element["src"]) if image_element else None,
+                    "date": date,
+                    "views": views
                 })
         return jsonify(news_articles)
     except requests.exceptions.RequestException as e:
@@ -133,7 +152,7 @@ def get_announcements():
                 full_link = urljoin(base_url, title_link_element["href"])
                 announcements.append({
                     "title": title_link_element.get_text(strip=True),
-                    "link": full_link,  # передаємо повний URL
+                    "link": full_link, 
                     "content": "Для перегляду повного тексту, перейдіть за посиланням.",
                     "image": None
                 })
