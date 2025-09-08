@@ -7,10 +7,14 @@ from dotenv import load_dotenv
 import os
 import re
 
-app = Flask(__name__) 
 load_dotenv() 
+app = Flask(__name__) 
+app.secret_key = os.getenv("SECRET_KEY")
 USERS_DB = "users.db"
+print(f"Loaded SECRET_KEY: {'[value hidden]' if app.secret_key else None}")
 
+
+AUTH_SERVICE_URL = "http://127.0.0.1:5001"
 
 
 @app.route("/idle")
@@ -291,22 +295,7 @@ def en_developments_page():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
-        
-        user = database.get_user_by_credentials(username, password)
-        
-        if user:
-            session['user'] = user
-            return redirect(url_for('admin_page'))
-        else:
-            return render_template("login.html", error="Невірний логін або пароль")
-    
-    if 'user' in session:
-        return redirect(url_for('admin_page'))
-    
-    return render_template("login.html")
+    return redirect(f"{AUTH_SERVICE_URL}/login")
 
 @app.route("/admin")
 def admin_page():
@@ -323,20 +312,19 @@ def admin_page():
 
 @app.route("/logout")
 def logout():
-    session.clear()
-    return redirect(url_for('login'))
+    return redirect(f"{AUTH_SERVICE_URL}/login")
 
-@app.route("/api/check_session")
-def check_session():
-    if 'user' in session:
-        return jsonify({
-            'valid': True,
-            'user': {
-                'username': session['user']['username'],
-                'role': session['user']['role']
-            }
-        })
-    return jsonify({'valid': False})
+# @app.route("/api/check_session")
+# def check_session():
+#     if 'user' in session:
+#         return jsonify({
+#             'valid': True,
+#             'user': {
+#                 'username': session['user']['username'],
+#                 'role': session['user']['role']
+#             }
+#         })
+#     return jsonify({'valid': False})
 
 @app.route("/admin/add", methods=["POST"])
 def admin_add():
@@ -442,10 +430,8 @@ def api_idle_video():
         return jsonify({"yt_id": yt_id})
     return jsonify({"yt_id": None}), 404
 
-app.secret_key = os.getenv("SECRET_KEY")
-
 if __name__ == "__main__":
-    database.init_users_db() 
+    # database.init_users_db() 
     database.init_videos_db() 
     
     app.run(debug=True)
