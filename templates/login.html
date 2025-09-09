@@ -206,11 +206,11 @@
             loadingText.style.display = 'none';
         }
         
-        fetch('/api/check_session')
+        fetch('api/check_session')
             .then(response => response.json())
             .then(data => {
                 if (data.valid) {
-                    window.location.href = '/admin';
+                    window.location.href = 'admin';
                 }
             })
             .catch(error => console.log('Помилка перевірки сесії:', error));

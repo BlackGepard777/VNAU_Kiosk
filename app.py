@@ -6,14 +6,12 @@ from urllib.parse import urljoin, unquote
 from dotenv import load_dotenv
 import os
 import re
-from kiosk_routers import kiosk_bp  
+
 
 
 app = Flask(__name__) 
 load_dotenv() 
-USERS_DB = "users.db"
-
-app.register_blueprint(kiosk_bp)
+USERS_DB = "data/users.db"
 
 
 
@@ -33,9 +31,9 @@ def home():
 def en_home():
     return render_template("English_version/en_index.html")
 
-# @app.route("/faculties")
-# def faculties_page():
-#     return render_template("faculties.html")
+@app.route("/faculties")
+def faculties_page():
+    return render_template("faculties.html")
 
 @app.route("/en_faculties")
 def en_faculties_page():
@@ -449,7 +447,8 @@ def api_idle_video():
 app.secret_key = os.getenv("SECRET_KEY")
 
 if __name__ == "__main__":
-    database.init_users_db() 
-    database.init_videos_db() 
+    database.init_kiosk_db()
+    # database.init_users_db() 
+    # database.init_videos_db() 
     
     app.run(debug=True)

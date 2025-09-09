@@ -104,7 +104,7 @@ function onPlayerStateChange(event) {
 
 async function loadVideos(page = 1, faculty = "") {
     try {
-        const response = await fetch(`/api/videos?page=${page}&faculty=${encodeURIComponent(faculty)}`);
+        const response = await fetch(`api/videos?page=${page}&faculty=${encodeURIComponent(faculty)}`);
         const data = await response.json();
         const container = document.getElementById("video-container");
         container.innerHTML = "";

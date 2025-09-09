@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Галерея відео</title>
-    <link rel="stylesheet" href="/static/css/video.css">
+    <link rel="stylesheet" href="static/css/video.css">
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="/static/js/video.js" defer></script>
+    <script src="static/js/video.js" defer></script>
 </head>
 
 <body>
     <header class="header">
        
-        <a href="/faculties" class="back-btn"><i class="fa-solid fa-left-long"></i> Назад</a>
+        <a href="faculties" class="back-btn"><i class="fa-solid fa-left-long"></i> Назад</a>
          <h1>Галерея відео</h1>
     </header>
     <div id="video-container" class="video-grid" data-faculty="{{ faculty }}"></div>
@@ -21,7 +21,7 @@
         <span id="page-info"></span>
         <button id="next" class="pagination-btn">Вперед</button>
     </div>
-    <script src="/static/js/idle_mode.js"></script>
+    <script src="static/js/idle_mode.js"></script>
 </body>
 
 </html>

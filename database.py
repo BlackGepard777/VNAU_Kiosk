@@ -3,18 +3,28 @@ import bcrypt
 
 DB_FOLDER = "./data/"
 
-DB_NAME = "{}/videos.db".format(DB_FOLDER)
-BG_name = "{}/background.db".format(DB_FOLDER)
-USERS_DB = "{}/users.db".format(DB_FOLDER)
+# DB_NAME = "{}/videos.db".format(DB_FOLDER)
+# BG_name = "{}/background.db".format(DB_FOLDER)
+# USERS_DB = "{}/users.db".format(DB_FOLDER)
 
-def get_user_connection():
-    return sqlite3.connect(USERS_DB, check_same_thread=False)
+# def get_user_connection():
+#     return sqlite3.connect(USERS_DB, check_same_thread=False)
 
-def get_video_connection():
+# def get_video_connection():
+#     return sqlite3.connect(DB_NAME, check_same_thread=False)
+
+DB_NAME = "{}/kiosk.db".format(DB_FOLDER)
+
+def get_connection():
     return sqlite3.connect(DB_NAME, check_same_thread=False)
 
+def init_kiosk_db():
+    """Ініціалізує всі потрібні таблиці в одній базі kiosk.db"""
+    init_users_db()
+    init_videos_db()
+
 def init_users_db():
-    conn = get_user_connection()
+    conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
@@ -28,7 +38,7 @@ def init_users_db():
     conn.close()
 
 def init_videos_db():
-    conn = get_video_connection()
+    conn = get_connection()
     c = conn.cursor()
     c.execute('''
     CREATE TABLE IF NOT EXISTS videos (
@@ -78,7 +88,7 @@ def verify_password(password, stored_hash):
         return False
 
 def create_user(username, password, role='user'):
-    conn = get_user_connection()
+    conn = get_connection()
     cursor = conn.cursor()
 
     cursor.execute("SELECT username FROM users WHERE username=?", (username,))
@@ -97,7 +107,7 @@ def create_user(username, password, role='user'):
     return True
 
 def get_user_by_credentials(username, password):
-    conn = get_user_connection()
+    conn = get_connection()
     cursor = conn.cursor()
     cursor.execute('SELECT id, username, password_hash, role FROM users WHERE username = ?', (username,))
     user = cursor.fetchone()
@@ -112,7 +122,7 @@ def get_user_by_credentials(username, password):
     return None
 
 def update_user_password(username, new_password):
-    conn = get_user_connection()
+    conn = get_connection()
     cursor = conn.cursor()
     
     new_password_hash = hash_password(new_password)

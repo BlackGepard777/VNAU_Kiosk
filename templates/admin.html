@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Адмінка</title>
-    <link rel="stylesheet" href="/static/css/admin.css">
+    <link rel="stylesheet" href="static/css/admin.css">
 </head>
 <body>
     <div class="auth-info">
@@ -11,7 +11,7 @@
             🟢 Сесія активна
         </div>   
         <div class="logout">        
-            <a href="/logout" class="logout-btn">
+            <a href="logout" class="logout-btn">
                 Вихід
             </a>
         </div>
@@ -26,7 +26,7 @@
                 <input type="text" id="youtube-url" placeholder="Вставити посилання на YouTube відео">
                 <button id="fetch-btn" type="button" class="btn">Отримати дані</button>
             </div>
-            <form id="add-video-form" method="POST" action="{{ url_for('admin_add') }}">
+            <form id="add-video-form" method="POST" action="admin/add">
                 <input type="hidden" name="yt_id" id="yt_id">
                 <input type="text" name="title" id="title" placeholder="Назва" required>
                 <input type="text" name="description" id="description" placeholder="Опис">
@@ -61,7 +61,7 @@
                         <td>{{ v.description }}</td>
                         <td>{{ v.faculty }}</td>
                         <td>
-                            <form method="POST" action="{{ url_for('admin_delete', video_id=v.id) }}">
+                            <form method="POST" action="admin_delete/{{ v.id }}">
                                 <button type="submit" class="btn delete-btn">Видалити</button>
                             </form>
                         </td>
@@ -111,6 +111,6 @@
     </table>
 </div>
     
-    <script src="/static/js/admin.js"></script>
+    <script src="static/js/admin.js"></script>
 </body>
 </html>

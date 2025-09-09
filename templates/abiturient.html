@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Абітурієнтам</title>
-    <link rel="stylesheet" href="/static/css/abiturient.css">
+    <link rel="stylesheet" href="static/css/abiturient.css">
     <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
@@ -23,10 +23,10 @@
 
 <body>
     <div class="header-leanguage-abiturient">
-        <a href="/" class="back-btn"><p><i class="fa-solid fa-left-long"></i> Назад</p></a>
+        <a href="./" class="back-btn"><p><i class="fa-solid fa-left-long"></i> Назад</p></a>
         <div class="language-header">
-            <a href="{{ url_for('abiturient_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-            <a href="{{ url_for('en_abiturient_page') }}"><img src="/static/images/usa.png" alt=""></a>
+            <a href="abiturient"><img src="static/images/ukraine.png" alt=""></a>
+            <a href="en_abiturient"><img src="static/images/usa.png" alt=""></a>
         </div>
     </div>
     <div class="header-abit">
@@ -34,48 +34,48 @@
         <p class="subtitle">Вся необхідна інформація для вступу</p>
     </div>
     <div class="grid">
-        <a href="{{ url_for('rules_page') }}" class="card">
-            <img src="/static/images/abiturient_img/3319636_agreement_contract_document_page_paper_icon (1).png" alt="">
+        <a href="rules" class="card">
+            <img src="static/images/abiturient_img/3319636_agreement_contract_document_page_paper_icon (1).png" alt="">
             <span class="card-title">Правила вступу</span>
             <p>Ознайомтесь з актуальними правилами прийому</p>
         </a>
-        <a href="{{ url_for('specialities_page') }}" class="card">
-            <img src="/static/images/abiturient_img/532620_award_badge_business_college_diploma_icon.png" alt="">
+        <a href="specialities" class="card">
+            <img src="static/images/abiturient_img/532620_award_badge_business_college_diploma_icon.png" alt="">
             <span class="card-title">Спеціальності та освітні програми</span>
             <p>Виберіть напрямок для навчання</p>
         </a>
-        <a href="{{ url_for('admission_page') }}" class="card">
-            <img src="/static/images/abiturient_img/532632_analysis_chart_charts_diagram_graph_icon.png" alt="">
+        <a href="admission" class="card">
+            <img src="static/images/abiturient_img/532632_analysis_chart_charts_diagram_graph_icon.png" alt="">
             <span class="card-title">Вступна кампанія</span>
             <p>Дізнайтесь про етапи вступу</p>
         </a>
-        <a href="{{ url_for('documents_page') }}" class="card">
-            <img src="/static/images/abiturient_img/3319619_artical_law_news paper_paper_icon (1).png" alt="">
+        <a href="documents_page" class="card">
+            <img src="static/images/abiturient_img/3319619_artical_law_news paper_paper_icon (1).png" alt="">
             <span class="card-title">Необхідні документи</span>
             <p>Які документи потрібні для вступу</p>
         </a>
-        <a href="{{ url_for('contacts_page') }}" class="card">
-            <img src="/static/images/abiturient_img/приймальна ком.png" alt="">
+        <a href="contacts" class="card">
+            <img src="static/images/abiturient_img/приймальна ком.png" alt="">
             <span class="card-title">Контакти приймальної комісії</span>
             <p>Зв'яжіться з нами для консультації</p>
         </a>
-        <a href="{{ url_for('tution_page') }}" class="card">
-            <img src="/static/images/abiturient_img/3319605_bulb_dollar_financial_idea_light_icon.png" alt="">
+        <a href="tution_page" class="card">
+            <img src="static/images/abiturient_img/3319605_bulb_dollar_financial_idea_light_icon.png" alt="">
             <span class="card-title">Вартість навчання</span>
             <p>Дізнайтесь про оплату та бюджетні місця</p>
         </a>
-        <a href="{{ url_for('studentlife_page') }}" class="card">
-            <img src="/static/images/abiturient_img/532648_diamond_gem_luxury_sparkle_value_icon.png" alt="">
+        <a href="studentlife_page" class="card">
+            <img src="static/images/abiturient_img/532648_diamond_gem_luxury_sparkle_value_icon.png" alt="">
             <span class="card-title">Студентське життя</span>
             <p>Дозвілля, гуртожитки, активності</p>
         </a>
-        <a href="{{ url_for('about_page') }}" class="card">
-            <img src="/static/images/abiturient_img/532639_coin_currency_dollar_explore_funding_icon.png" alt="">
+        <a href="about_page" class="card">
+            <img src="static/images/abiturient_img/532639_coin_currency_dollar_explore_funding_icon.png" alt="">
             <span class="card-title">Про університет</span>
             <p>Історія, місія, цінності ВНАУ</p>
         </a>
     </div>
-    <script src="/static/js/idle_mode.js"></script>
+    <script src="static/js/idle_mode.js"></script>
 </body>
 
 </html>

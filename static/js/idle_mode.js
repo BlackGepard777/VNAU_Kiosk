@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const IDLE_TIME = 600000; 
 
     function redirectToIdlePage() {
-        fetch("/api/idle_video")
+        fetch("api/idle_video")
             .then(response => {
                 if (response.status === 200) {
-                    window.location.href = '/idle';
+                    window.location.href = 'idle';
                 }
             })
             .catch(error => {

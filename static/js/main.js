@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
             const facultyId = link.dataset.facultyId;
-            window.location.href = `/video?faculty=${facultyId}`;
+            window.location.href = `video?faculty=${facultyId}`;
         });
     });
 

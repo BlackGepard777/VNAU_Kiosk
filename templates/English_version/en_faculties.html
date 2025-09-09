@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>University Faculties</title>
-    <link rel="stylesheet" href="/static/css/facultets.css">
+    <link rel="stylesheet" href="static/css/facultets.css">
     <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
@@ -23,68 +23,68 @@
     <div class="bg-particles" id="particles"></div>
     <div class="container">
         <div class="header-container">
-            <a href="{{ url_for('en_home') }}" class="back-btn">
+            <a href="en" class="back-btn">
                 <p><i class="fa-solid fa-left-long"></i> Back</p>
             </a>
             <div class="language-header">
-                <a href="{{ url_for('faculties_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-                <a href="{{ url_for('en_faculties_page') }}"><img src="/static/images/usa.png" alt=""></a>
+                <a href="faculties"><img src="static/images/ukraine.png" alt=""></a>
+                <a href="en_faculties"><img src="static/images/usa.png" alt=""></a>
             </div>
         </div>
         <h1>University Faculties</h1>
 
         <div class="faculties-grid">
-            <div class="faculty-card" onclick="window.location.href='/en_video?faculty=Агрономія'">
+            <div class="faculty-card" onclick="window.location.href='en_video?faculty=Агрономія'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/fakyltett_Agronomii_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Агрономія">
+                    <img src="static/images/facultets_img/fakyltett_Agronomii_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Агрономія">
                 </div>
                 <h3>Faculty of Agronomy, Horticulture and Plant Protection</h3>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Екологія'">
+            <div class="faculty-card" onclick="window.location.href='video?faculty=Екологія'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/ft_ekologii_neww_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Екологія">
+                    <img src="static/images/facultets_img/ft_ekologii_neww_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Екологія">
                 </div>
                 <h3>Faculty of Ecology, Biotechnology and Landscape Architecture</h3>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Інженерія'">
+            <div class="faculty-card" onclick="window.location.href='video?faculty=Інженерія'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/fakultet-ITF.5b062b49a66807a9d0aaeaa8c7c82d55-pica-Photoroom.png" alt="Інженерія">
+                    <img src="static/images/facultets_img/fakultet-ITF.5b062b49a66807a9d0aaeaa8c7c82d55-pica-Photoroom.png" alt="Інженерія">
                 </div>
                 <h3>Faculty of Engineering and Technology</h3>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Економіка'">
+            <div class="faculty-card" onclick="window.location.href='video?faculty=Економіка'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/Airbrush-Image-Enhancer-1756386538660-Photoroom.png" alt="Економіка">
+                    <img src="static/images/facultets_img/Airbrush-Image-Enhancer-1756386538660-Photoroom.png" alt="Економіка">
                 </div>
                 <h3>Faculty of Economics, Entrepreneurship, Management and Service Industry</h3>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Облік і фінанси'">
+            <div class="faculty-card" onclick="window.location.href='video?faculty=Облік і фінанси'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/Airbrush-Image-Enhancer-1756386578532-Photoroom.png" alt="Облік і фінанси">
+                    <img src="static/images/facultets_img/Airbrush-Image-Enhancer-1756386578532-Photoroom.png" alt="Облік і фінанси">
                 </div>
                 <h3>Faculty of Accounting, Finance and Audit</h3>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Менеджмент'">
+            <div class="faculty-card" onclick="window.location.href='video?faculty=Менеджмент'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/fakyltet_Menedgmenty_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Менеджмент">
+                    <img src="static/images/facultets_img/fakyltet_Menedgmenty_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Менеджмент">
                 </div>
                 <h3>Faculty of Management and Law</h3>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Технології виробництва'">
+            <div class="faculty-card" onclick="window.location.href='video?faculty=Технології виробництва'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/TVPRyT.5b062b49a66807a9d0aaeaa8c7c82d55-pica-Photoroom.png" alt="Технології виробництва">
+                    <img src="static/images/facultets_img/TVPRyT.5b062b49a66807a9d0aaeaa8c7c82d55-pica-Photoroom.png" alt="Технології виробництва">
                 </div>
                 <h3>Faculty of Animal Production and Processing Technologies</h3>
             </div>
-            <div class="faculty-card" onclick="window.location.href='/video?faculty=Ветеринарна медицина'">
+            <div class="faculty-card" onclick="window.location.href='video?faculty=Ветеринарна медицина'">
                 <div class="icon">
-                    <img src="/static/images/facultets_img/fakyltet_veter_meducunu_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Ветеринарна медицина">
+                    <img src="static/images/facultets_img/fakyltet_veter_meducunu_5b062b49a66807a9d0aaeaa8c7c82d55_pica_Photoroom.png" alt="Ветеринарна медицина">
                 </div>
                 <h3>Faculty of Veterinary Medicine</h3>
             </div>
         </div>
     </div>
-    <script src="/static/js/idle_mode.js"></script>
+    <script src="static/js/idle_mode.js"></script>
     <script>
     function createParticles() {
       const particlesContainer = document.getElementById('particles');

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         statusMessage.textContent = 'Отримання даних...';
         ytIdInput.value = videoId;
 
-        fetch(`/api/get_video_info?yt_id=${videoId}`)
+        fetch(`api/get_video_info?yt_id=${videoId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.error) {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         idleStatusMessage.textContent = 'Отримання даних...';
         idleYtIdInput.value = videoId;
 
-        fetch(`/api/get_video_info?yt_id=${videoId}`)
+        fetch(`api/get_video_info?yt_id=${videoId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.error) throw new Error(data.error);
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addIdleVideoForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(addIdleVideoForm);
-        await fetch('/admin/idle/add', {
+        await fetch('admin/idle/add', {
             method: 'POST',
             body: new URLSearchParams(formData)
         });
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkbox.addEventListener('change', async (e) => {
             const videoId = e.target.dataset.id;
             const isChecked = e.target.checked;
-            await fetch('/admin/idle/toggle', {
+            await fetch('admin/idle/toggle', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ video_id: videoId, is_active: isChecked })
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.delete-idle-btn').forEach(button => {
         button.addEventListener('click', async (e) => {
             const videoId = e.target.dataset.id;
-            await fetch('/admin/idle/delete', {
+            await fetch('admin/idle/delete', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ video_id: videoId })

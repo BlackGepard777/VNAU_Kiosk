@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Розклад університету</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/schedule.css">
+    <link rel="stylesheet" href="static/css/schedule.css">
     <script src="https://kit.fontawesome.com/080c9e2a9a.js" crossorigin="anonymous"></script>
     <style>
         .language-header {
@@ -25,12 +25,12 @@
 <body>
     <div class="bg-particles" id="particles"></div>
     <div class="header-leanguage-btn">
-        <a href="{{ url_for('home') }}" class="back-btn">
+        <a href="./" class="back-btn">
             <p><i class="fa-solid fa-left-long"></i>Назад</p>
         </a>
         <div class="language-header">
-            <a href="{{ url_for('schedule_page') }}"><img src="/static/images/ukraine.png" alt=""></a>
-            <a href="{{ url_for('en_schedule_page') }}"><img src="/static/images/usa.png" alt=""></a>
+            <a href="schedule"><img src="static/images/ukraine.png" alt=""></a>
+            <a href="en_schedule"><img src="static/images/usa.png" alt=""></a>
         </div>
     </div>
     <div class="schedule-container">
@@ -61,8 +61,8 @@
             <p class="placeholder-text">Розклад з'явиться тут...</p>
         </div>
     </div>
-    <script src="/static/js/schedule.js"></script>
-    <script src="/static/js/idle_mode.js"></script>
+    <script src="static/js/schedule.js"></script>
+    <script src="static/js/idle_mode.js"></script>
     <script>
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
