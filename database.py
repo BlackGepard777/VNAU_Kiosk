@@ -1,7 +1,7 @@
 import sqlite3
 import bcrypt
 
-DB_NAME = "videos.db"
+DB_NAME = "data/videos.db"
 BG_name = "background.db"
 USERS_DB = "users.db"
 
