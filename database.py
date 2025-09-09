@@ -1,9 +1,11 @@
 import sqlite3
 import bcrypt
 
-DB_NAME = "data/videos.db"
-BG_name = "background.db"
-USERS_DB = "users.db"
+DB_FOLDER = "./data/"
+
+DB_NAME = "{}/videos.db".format(DB_FOLDER)
+BG_name = "{}/background.db".format(DB_FOLDER)
+USERS_DB = "{}/users.db".format(DB_FOLDER)
 
 def get_user_connection():
     return sqlite3.connect(USERS_DB, check_same_thread=False)
