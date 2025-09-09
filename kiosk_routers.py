@@ -10,7 +10,7 @@ import re
 
 
 
-kiosk_bp = Blueprint('kiosk_bp', __name__, url_prefix='/kiosk')
+kiosk_bp = Blueprint('kiosk_bp', __name__)
 
 @kiosk_bp.route("/")
 def home():

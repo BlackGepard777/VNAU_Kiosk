@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    loadAndRenderContent('/api/news', newsContainer, 'news');
-    loadAndRenderContent('/api/announcements', announcementsContainer, 'announcement');
+    loadAndRenderContent('api/news', newsContainer, 'news');
+    loadAndRenderContent('api/announcements', announcementsContainer, 'announcement');
 
     function loadItemDetail(url, type) {
         let endpoint = '';
         if (type === 'news') {
-            endpoint = `/api/news/detail?url=${encodeURIComponent(url)}`;
+            endpoint = `api/news/detail?url=${encodeURIComponent(url)}`;
         } else if (type === 'announcement') {
-            endpoint = `/api/announcements/detail?url=${encodeURIComponent(url)}`; 
+            endpoint = `api/announcements/detail?url=${encodeURIComponent(url)}`; 
         } else {
             console.error("Невідомий тип контенту");
             return;
